@@ -1,27 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
-import Header from "./Header";
+// import './App.css';
+import 'antd/dist/antd.css';
+import {Layout} from 'antd';
+import HeaderSection from "./components/Header/HeaderSection";
+import Progress from "./components/Progress/Progress";
+import {BrowserRouter, Route} from "react-router-dom";
+import Docs from "./components/Docs/Docs";
+import UploadGS from "./components/UploadGS/UploadGS";
+import {updateDescriptionText} from "./State";
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  )
+const {Content, Footer} = Layout;
+
+function App(props) {
+    return (
+        <BrowserRouter>
+            <Layout style={{height: '100vh'}}>
+                <HeaderSection/>
+                <Progress/>
+                <Content style={{padding: '50px 200px'}}>
+                    <Route path={'/uploadGS'} render={() => <UploadGS addDescription={props.addDescription}
+                                                                      updateDescriptionText={props.updateDescriptionText}
+                                                                      descriptionText = {props.state.descriptionText}
+                    />}/>
+                    <Route path={'/docs'} render={() => <Docs description={props.state.description}/>}/>
+                </Content>
+                <Footer style={{textAlign: 'center'}} className="footer">Preview Tool ©2021 Created by Dmitry
+                    Kovalevich</Footer>
+            </Layout>
+        </BrowserRouter>
+    )
 }
 
 export default App;
