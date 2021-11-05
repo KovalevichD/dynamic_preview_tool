@@ -22,7 +22,6 @@ router.post('/sheetInfo',
             const spreadsheetId = new RegExp("/spreadsheets/d/([a-zA-Z0-9-_]+)").exec(url)[1];
             const connection = await connect()
             const spreadsheetInfo = await getSpreadsheetInfo(url, spreadsheetId, connection)
-            // const data = await getData(url, spreadsheetId, connection)
 
             res.status(200).json({spreadsheetInfo})
 

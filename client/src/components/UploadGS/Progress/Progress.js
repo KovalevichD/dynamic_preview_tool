@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Steps} from 'antd';
 
 const {Step} = Steps;
@@ -6,11 +6,6 @@ const {Step} = Steps;
 const Progress = (props) => {
     const initialStep = 0
     const [current, setCurrent] = useState(initialStep)
-
-    // useEffect(() => {
-    //     if (initialStep !== props.activeStepOfProgress)    setCurrent(props.activeStepOfProgress)
-    //
-    // });
 
     const onChange = (currentStep) => {
         setCurrent(currentStep)

@@ -5,7 +5,6 @@ const mapStateToProps = (state) => {
     return {
         totalListOfSheetsLength: state.uploadGS.totalListOfSheets.length,
         sheetDataLength: state.uploadGS.sheetData.length,
-        activeStepOfProgress: state.uploadGS.activeStepOfProgress
     }
 }
 

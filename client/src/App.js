@@ -7,6 +7,8 @@ import StartPage from "./components/StartPage/StartPage";
 import FooterSection from "./components/FooterSection/FooterSection";
 import HeaderSectionContainer from "./components/HeaderSection/HeaderSectionContainer";
 import UploadGS from "./components/UploadGS/UploadGS";
+import UploadResult from "./components/UploadGS/UploadResult/UploadResult";
+import React from "react";
 
 
 const {Content} = Layout;
@@ -22,6 +24,7 @@ function App() {
                         <Content className="main-content">
                             <Route exact path={'/'} render={() => <StartPage/>}/>
                             <Route path={'/uploadGs'} render={() => <UploadGS />}/>
+                            <Route exact path={'/uploadGsResult'} render={() => <UploadResult />}/>
                         </Content>
                     </Layout>
                 </Layout>

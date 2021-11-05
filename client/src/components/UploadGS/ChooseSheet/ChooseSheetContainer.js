@@ -3,7 +3,6 @@ import ChooseSheet from "./ChooseSheet";
 import {
     addListOfSheetsToUploadAC,
     addSheetDataAC,
-    setActiveStepOfProgressAC,
     toggleIsFetchingAC
 } from "../../../redux/reducers/uploadGSReducer";
 
@@ -21,7 +20,6 @@ const mapDispatchToProps = (dispatch) => {
         addListOfSheetsToUpload: (list) => dispatch(addListOfSheetsToUploadAC(list)),
         toggleIsFetching: (isFetching) => dispatch(toggleIsFetchingAC(isFetching)),
         addSheetData: (data) => dispatch(addSheetDataAC(data)),
-        setActiveStepOfProgress: (step) => dispatch(setActiveStepOfProgressAC(step))
     }
 }
 

@@ -19,7 +19,7 @@ const SelectType = (props) => {
 
     return (
         <>
-            <Select defaultValue={props.defaultTypes[props.rowIndex]} style={{ width: 100 }} onChange={handleChange}>
+            <Select defaultValue={props.defaultTypes[props.rowIndex]} style={{ width: 120 }} onChange={handleChange}>
                 {options}
             </Select>
         </>

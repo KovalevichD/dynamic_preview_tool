@@ -5,8 +5,7 @@ import GetSheetInfoContainer from "./GetSheetsInfo/GetSheetInfoContainer";
 import ChooseSheetContainer from "./ChooseSheet/ChooseSheetContainer";
 import ProgressContainer from "./Progress/ProgressContainer";
 
-const UploadGS = (props) => {
-
+const UploadGS = () => {
     return (
         <>
             <div style={{padding: '24px'}}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Table, Button, Typography} from 'antd';
+import {BackTop, Table, Button, Typography, message} from 'antd';
 import SelectType from "./SelectType/SelectType";
 import {Link} from "react-router-dom";
 import TableHeader from "./TableHeader/TableHeader";
@@ -80,15 +80,17 @@ const ShowSheetsData = (props) => {
 
     const onClick = () => {
         props.setDataReadyFlag(true)
+        message.success('Dynamic snippets have been created!');
     }
 
     return (
         <>
-            <Title level={5} style={{textAlign: 'left', marginTop: '50px', marginBottom: '20px'}}>Choose field type for
+            <Title level={4} style={{textAlign: 'left', marginTop: '50px', marginBottom: '20px'}}>Choose field type for
                 each property</Title>
             {tables}
 
-            <Link to='/uploadedDataAlert'><Button onClick={onClick} type="primary">Continue</Button></Link>
+            <Link to='/uploadGsResult'><Button onClick={onClick} type="primary">Continue</Button></Link>
+            <BackTop />
         </>
     );
 }

@@ -1,28 +1,25 @@
-import React, {useState} from 'react';
-import {Typography, Button, Input} from 'antd';
+import React, {useEffect, useState} from 'react';
 import {getSheetsList} from "../../../api/api";
 import {Redirect} from "react-router-dom";
-import {setActiveStepOfProgressAC} from "../../../redux/reducers/uploadGSReducer";
-
-const {Title} = Typography;
+import ChangeSpreadsheetLink from "./ChangeSpreadsheetLink/ChangeSpreadsheetLink";
+import ProvideSpreadsheetLink from "./ProvideSpreadsheetLink/ProvideSpreadsheetLink";
+import { message } from 'antd';
 
 const GetSheetInfo = (props) => {
     const [redirect, setRedirect] = useState(false);
+    const [isDisable, setIsDisable] = useState(props.spreadsheetName);
+
+    useEffect(() => {
+        setIsDisable(props.spreadsheetName)
+    }, [props.spreadsheetName])
 
     const onClick = async () => {
         props.toggleIsFetching(true)
-        const spreadsheetInfo = await getSheetsList(props.urlInputText)
-        const {spreadsheetId, spreadsheetName, listOfSheets} = spreadsheetInfo.data.spreadsheetInfo
+        const spreadsheetInfo = await getSheetsList(props.urlInputText) //TODO! handle request error
 
+        props.setSheetInfo(spreadsheetInfo.data.spreadsheetInfo)
         props.toggleIsFetching(false)
-        props.setActiveStepOfProgress(1)
-
-        props.setSpreadSheetName(spreadsheetName)
-        props.addTotalListOfSheets(listOfSheets)
-        props.addListOfSheetsToUpload(listOfSheets)
-        props.setSpreadSheetId(spreadsheetId)
-
-        // props.setActiveStepOfProgress(1)
+        message.success('Information about spreadsheet loaded successfully!')
         setRedirect(true)
     }
 
@@ -37,17 +34,14 @@ const GetSheetInfo = (props) => {
 
     return (
         <>
-            <Title level={5} style={{textAlign: 'left', marginTop: '50px'}}>Select the content source data file you want
-                to
-                transform.</Title>
-            <Input id={'input'}
-                   onChange={onChange}
-                   allowClear={true}
-                   value={props.urlInputText}
-                   placeholder="Spreadsheet URL"
-                   style={{width: '50%'}}/>
-            <Button onClick={onClick} loading={props.isFetching} type="primary" style={{marginLeft: '20px'}}>Load
-                Sheet</Button>
+            {
+                isDisable
+                    ? <ChangeSpreadsheetLink spreadsheetName={props.spreadsheetName}
+                                             spreadsheetUrl={props.spreadsheetUrl}
+                                             resetData={props.resetData}/>
+                    : <ProvideSpreadsheetLink urlInputText={props.urlInputText} onChange={onChange} onClick={onClick}
+                                              isFetching={props.isFetching}/>
+            }
         </>
     );
 }

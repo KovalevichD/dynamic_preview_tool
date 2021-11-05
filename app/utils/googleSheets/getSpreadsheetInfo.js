@@ -1,4 +1,4 @@
-const getSpreadsheetInfo = async (url, spreadsheetId, connection) => {
+const getSpreadsheetInfo = async (spreadsheetUrl, spreadsheetId, connection) => {
     try {
         const sheetData = await connection.spreadsheets.get({
             spreadsheetId: spreadsheetId
@@ -11,7 +11,8 @@ const getSpreadsheetInfo = async (url, spreadsheetId, connection) => {
         return {
             spreadsheetId,
             spreadsheetName,
-            listOfSheets
+            listOfSheets,
+            spreadsheetUrl
         }
     } catch (e) {
         console.error(e.message)

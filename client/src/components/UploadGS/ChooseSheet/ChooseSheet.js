@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Select, Typography, Button} from 'antd';
+import {message, Select, Typography, Button} from 'antd';
 import {getSheetsData} from "../../../api/api";
 import {Redirect} from "react-router-dom";
 
@@ -25,9 +25,8 @@ const ChooseSheet = (props) => {
 
         props.toggleIsFetching(false)
 
-        props.setActiveStepOfProgress(2)
         props.addSheetData(spreadsheetData.data.sheetsData)
-
+        message.success('The data has been loaded!');
         setRedirect(true)
     }
 
@@ -37,7 +36,7 @@ const ChooseSheet = (props) => {
 
     return (
         <>
-            <Title level={5} style={{textAlign: 'left', marginTop: '50px'}}>Choose sheets you want to upload.</Title>
+            <Title level={4} style={{textAlign: 'left', marginTop: '50px'}}>Choose sheets you want to upload.</Title>
             <Select
                 mode="multiple"
                 allowClear
