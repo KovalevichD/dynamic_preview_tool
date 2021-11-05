@@ -6,10 +6,11 @@ const SelectType = (props) => {
 
     const options = props.listOfTypes.map(listItem => <Option key={listItem} value={listItem}>{listItem}</Option>)
 
-    function handleChange(value) {
+    const handleChange = (value) => {
         const typeObj = {
             sheetName: props.sheetName,
-            index: props.index,
+            rowIndex: props.rowIndex,
+            sheetIndex: props.sheetIndex,
             typeValue: value
         }
 
@@ -18,7 +19,7 @@ const SelectType = (props) => {
 
     return (
         <>
-            <Select defaultValue={props.defaultTypes[props.index]} style={{ width: 120 }} onChange={handleChange}>
+            <Select defaultValue={props.defaultTypes[props.rowIndex]} style={{ width: 100 }} onChange={handleChange}>
                 {options}
             </Select>
         </>

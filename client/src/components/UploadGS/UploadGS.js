@@ -1,18 +1,19 @@
 import React from 'react';
-import Progress from "./Progress/Progress";
 import {Route} from "react-router-dom";
 import ShowSheetsDataContainer from "./ShowSheetsData/ShowSheetsDataContainer";
 import GetSheetInfoContainer from "./GetSheetsInfo/GetSheetInfoContainer";
 import ChooseSheetContainer from "./ChooseSheet/ChooseSheetContainer";
+import ProgressContainer from "./Progress/ProgressContainer";
 
 const UploadGS = (props) => {
+
     return (
         <>
             <div style={{padding: '24px'}}>
-                <Progress/>
-                <Route exact path={'/uploadGs'} render={() => <GetSheetInfoContainer />}/>
+                <Route path={'/uploadGs/'} render={({history}) => <ProgressContainer history={history}/>}/>
+                <Route exact path={'/uploadGs/loadSpreadsheetInfo'} render={() => <GetSheetInfoContainer />}/>
                 <Route exact path={'/uploadGs/chooseSheets'} render={() => <ChooseSheetContainer />}/>
-                <Route exact path={'/uploadGs/getData'} render={() => <ShowSheetsDataContainer />}/>
+                <Route exact path={'/uploadGs/setTypes'} render={() => <ShowSheetsDataContainer />}/>
             </div>
         </>
     );

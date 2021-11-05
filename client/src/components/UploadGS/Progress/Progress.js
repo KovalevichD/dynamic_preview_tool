@@ -1,22 +1,40 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Steps} from 'antd';
 
 const {Step} = Steps;
 
 const Progress = (props) => {
-    const [current, setCurrent] = useState(0)
+    const initialStep = 0
+    const [current, setCurrent] = useState(initialStep)
+
+    // useEffect(() => {
+    //     if (initialStep !== props.activeStepOfProgress)    setCurrent(props.activeStepOfProgress)
+    //
+    // });
 
     const onChange = (currentStep) => {
         setCurrent(currentStep)
+
+        switch (currentStep) {
+            case 0:
+                props.history.push('/uploadGs/loadSpreadsheetInfo');
+                break;
+            case 1:
+                props.history.push('/uploadGs/chooseSheets');
+                break;
+            case 2:
+                props.history.push('/uploadGs/setTypes');
+                break;
+            default:
+                return;
+        }
     }
 
     return (
-
-        <Steps current={current} progressDot size="small" responsive={true} onChange={onChange}>
-            <Step title="Load info" description="This is a description." />
-            <Step title="Choose sheets to load" description="This is a description." />
-            <Step title="Step 3" description="Setting up the code snippet." />
-            <Step title="Step 4" description="Finish loading the code snippet." />
+        <Steps current={current} responsive={true} onChange={onChange}>
+            <Step title='Load spreadsheet info'/>
+            <Step disabled={!props.totalListOfSheetsLength} title='Choose sheets to load'/>
+            <Step disabled={!props.sheetDataLength} title='Set up the code snippet'/>
         </Steps>
     );
 }

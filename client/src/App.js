@@ -16,12 +16,12 @@ function App() {
         <BrowserRouter>
             <Layout style={{minHeight: '100vh'}}>
                 <HeaderSectionContainer />
-                <Layout hasSider={true}>
+                <Layout>
                     <NavbarSection/>
                     <Layout style={{padding: '24px'}}>
                         <Content className="main-content">
                             <Route exact path={'/'} render={() => <StartPage/>}/>
-                            <Route path={'/uploadGs'} render={() => <UploadGS/>}/>
+                            <Route path={'/uploadGs'} render={() => <UploadGS />}/>
                         </Content>
                     </Layout>
                 </Layout>

@@ -1,6 +1,10 @@
 import {connect} from "react-redux";
 import ShowSheetsData from "./ShowSheetsData";
-import {setTypeAC} from "../../../redux/reducers/uploadGSReducer";
+import {
+    setDataReadyFlagAC,
+    setQuantityAC,
+    setTypeAC, updateElementNameAC,
+} from "../../../redux/reducers/uploadGSReducer";
 
 const mapStateToProps = (state) => {
     return {
@@ -11,7 +15,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setType: (typeObj) => dispatch(setTypeAC(typeObj))
+        setType: (typeObj) => dispatch(setTypeAC(typeObj)),
+        setQuantity: (index, number) => dispatch(setQuantityAC(index, number)),
+        updateElementName: (index, text) => dispatch(updateElementNameAC(index, text)),
+        setDataReadyFlag: (flag) => dispatch(setDataReadyFlagAC(flag))
     }
 }
 

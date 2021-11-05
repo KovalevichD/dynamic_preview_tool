@@ -1,14 +1,18 @@
 import React from 'react';
 import {Table, Button, Typography} from 'antd';
 import SelectType from "./SelectType/SelectType";
+import {Link} from "react-router-dom";
+import TableHeader from "./TableHeader/TableHeader";
+import TableFooter from "./TableFooter/TableFooter";
 
 const {Title} = Typography;
 
 const ShowSheetsData = (props) => {
+    const sheetData = props.sheetData;
     const dataSource = [];
     const columnsArr = [];
 
-    props.sheetData.forEach((data, sheetIndex) => {
+    sheetData.forEach((data, sheetIndex) => {
         const rowsArr = [];
 
         for (let i = 0; i < data.data[0].length; i++) {
@@ -39,8 +43,9 @@ const ShowSheetsData = (props) => {
                         setType={props.setType}
                         listOfTypes={props.listOfTypes}
                         sheetName={record.sheetName}
-                        defaultTypes={props.sheetData[sheetIndex].selectedTypes}
-                        index={index}
+                        defaultTypes={sheetData[sheetIndex].selectedTypes}
+                        rowIndex={index}
+                        sheetIndex={sheetIndex}
                     />
             },
             {
@@ -53,10 +58,18 @@ const ShowSheetsData = (props) => {
         columnsArr.push(columns)
     })
 
-    const tables = dataSource.map((sheet, index) => <Table
+    const tables = dataSource.map((sheet, index) =>
+
+        <Table
             key={index}
             bordered={true}
-            title={() => <div style={{fontSize: '20px', fontWeight: 'bold'}}>{sheet[0].sheetName}</div>}
+            title={() => <TableHeader updateSheetName={props.updateElementName}
+                                      elementName={sheetData[index].elementName}
+                                      index={index}/>}
+            footer={() => <TableFooter setQuantity={props.setQuantity}
+                                       dataLength={sheetData[index].data.length}
+                                       quantity={sheetData[index].quantity}
+                                       index={index}/>}
             size="small"
             pagination={false}
             style={{marginBottom: '45px'}}
@@ -64,13 +77,18 @@ const ShowSheetsData = (props) => {
             dataSource={sheet}
         />
     )
+
+    const onClick = () => {
+        props.setDataReadyFlag(true)
+    }
+
     return (
         <>
             <Title level={5} style={{textAlign: 'left', marginTop: '50px', marginBottom: '20px'}}>Choose field type for
                 each property</Title>
             {tables}
 
-            <Button type="primary">Continue</Button>
+            <Link to='/uploadedDataAlert'><Button onClick={onClick} type="primary">Continue</Button></Link>
         </>
     );
 }

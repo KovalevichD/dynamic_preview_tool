@@ -13,25 +13,26 @@ const ChooseSheet = (props) => {
     const sheetsListToUpload = props.listOfSheetsToUpload;
     const optionsList = totalSheetsList.map(listItem => <Option key={listItem} value={listItem}>{listItem}</Option>)
 
-    function onChange(value) {
+    const onChange = (value) => {
         value.length <= 0 ? toggleIsDisabled(true) : toggleIsDisabled(false)
         props.addListOfSheetsToUpload(value)
     }
 
-    async function onClick () {
+    const onClick = async () => {
         props.toggleIsFetching(true)
 
         const spreadsheetData = await getSheetsData(props.spreadsheetId, props.listOfSheetsToUpload)
 
         props.toggleIsFetching(false)
 
-        setRedirect(true)
-
+        props.setActiveStepOfProgress(2)
         props.addSheetData(spreadsheetData.data.sheetsData)
+
+        setRedirect(true)
     }
 
     if (redirect) {
-        return <Redirect to='/uploadGs/getData'/>;
+        return <Redirect to='/uploadGs/setTypes'/>;
     }
 
     return (
@@ -47,7 +48,7 @@ const ChooseSheet = (props) => {
             >
                 {optionsList}
             </Select>
-            <Button type="primary" onClick={onClick} loading={props.isFetching} disabled={isDisabled} style={{marginLeft: '20px'}}>Continue</Button>
+            <Button type="primary" onClick={onClick} loading={props.isFetching} disabled={isDisabled} style={{marginLeft: '20px'}}>Select Types</Button>
         </>
     );
 }

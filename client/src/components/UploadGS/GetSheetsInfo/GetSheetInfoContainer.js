@@ -2,7 +2,7 @@ import {connect} from "react-redux";
 import GetSheetInfo from "./GetSheetInfo";
 import {
     addListOfSheetsToUploadAC,
-    addTotalListOfSheetsAC, setSpreadSheetIdAC, setSpreadSheetNameAC, toggleIsFetchingAC,
+    addTotalListOfSheetsAC, setActiveStepOfProgressAC, setSpreadSheetIdAC, setSpreadSheetNameAC, toggleIsFetchingAC,
     updateUrlInputTextAC
 } from "../../../redux/reducers/uploadGSReducer";
 
@@ -19,7 +19,8 @@ const mapDispatchToProps = (dispatch) => {
         addListOfSheetsToUpload: (list) => dispatch(addListOfSheetsToUploadAC(list)),
         toggleIsFetching: (isFetching) => dispatch(toggleIsFetchingAC(isFetching)),
         setSpreadSheetName: (name) => dispatch(setSpreadSheetNameAC(name)),
-        setSpreadSheetId: (id) => dispatch(setSpreadSheetIdAC(id))
+        setSpreadSheetId: (id) => dispatch(setSpreadSheetIdAC(id)),
+        setActiveStepOfProgress: (step) => dispatch(setActiveStepOfProgressAC(step))
     }
 }
 

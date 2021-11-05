@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Typography, Button, Input} from 'antd';
 import {getSheetsList} from "../../../api/api";
 import {Redirect} from "react-router-dom";
+import {setActiveStepOfProgressAC} from "../../../redux/reducers/uploadGSReducer";
 
 const {Title} = Typography;
 
@@ -14,12 +15,14 @@ const GetSheetInfo = (props) => {
         const {spreadsheetId, spreadsheetName, listOfSheets} = spreadsheetInfo.data.spreadsheetInfo
 
         props.toggleIsFetching(false)
+        props.setActiveStepOfProgress(1)
 
         props.setSpreadSheetName(spreadsheetName)
         props.addTotalListOfSheets(listOfSheets)
         props.addListOfSheetsToUpload(listOfSheets)
         props.setSpreadSheetId(spreadsheetId)
 
+        // props.setActiveStepOfProgress(1)
         setRedirect(true)
     }
 

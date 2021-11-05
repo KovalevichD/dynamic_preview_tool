@@ -4,7 +4,8 @@ import HeaderSection from "./HeaderSection";
 const mapStateToProps = (state) => {
     return {
         spreadsheetName: state.uploadGS.spreadsheetName,
-        listOfSheetsToUpload: state.uploadGS.listOfSheetsToUpload
+        listOfSheetsToUpload: state.uploadGS.listOfSheetsToUpload,
+        isDataReady: state.uploadGS.isDataReady
     }
 }
 
