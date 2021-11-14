@@ -1,4 +1,4 @@
-import descriptionReducer from "./reducers/description-reducer";
+import createCodeSnippetsReducer from "./reducers/createCodeSnippetsReducer";
 
 const store = {
     _state: {
@@ -38,7 +38,7 @@ const store = {
     },
 
     dispatch(action) {
-        this._state = descriptionReducer(this._state, action)
+        this._state = createCodeSnippetsReducer(this._state, action)
 
         this._callSubscriber(this._state)
     }

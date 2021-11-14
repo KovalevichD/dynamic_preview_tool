@@ -4,6 +4,7 @@ import SelectType from "./SelectType/SelectType";
 import {Link} from "react-router-dom";
 import TableHeader from "./TableHeader/TableHeader";
 import TableFooter from "./TableFooter/TableFooter";
+import createSnippets from "../../../utils/createSnippets";
 
 const {Title} = Typography;
 
@@ -81,6 +82,7 @@ const ShowSheetsData = (props) => {
     const onClick = () => {
         props.setDataReadyFlag(true)
         message.success('Dynamic snippets have been created!');
+        createSnippets()
     }
 
     return (

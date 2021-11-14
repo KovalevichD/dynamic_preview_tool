@@ -11,7 +11,7 @@ const TableHeader = (props) => {
     return (
         <div style={{display: 'flex'}}>
             <Paragraph >Quantity:</Paragraph>
-            <InputNumber min={1} max={props.dataLength}
+            <InputNumber min={1} max={props.dataLength - 1}
                          value={props.quantity}
                          onChange={onQuantityChange}/>
         </div>

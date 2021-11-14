@@ -24,13 +24,13 @@ const NavbarSection = (props) => {
                     <Menu.Item key="3">Upload CSV</Menu.Item>
                     <Menu.Item key="4">Upload .json File</Menu.Item>
                 </SubMenu>
-                <SubMenu key="sub2" icon={<SaveOutlined/>} title="Save Your Creatives">
+                <SubMenu key="sub2" disabled={true} icon={<SaveOutlined/>} title="Save Your Creatives">
                     <Menu.Item key="5">option5</Menu.Item>
                     <Menu.Item key="6">option6</Menu.Item>
                     <Menu.Item key="7">option7</Menu.Item>
                     <Menu.Item key="8">option8</Menu.Item>
                 </SubMenu>
-                <SubMenu key="sub3" icon={<FundViewOutlined/>} title="Dynamic Preview">
+                <SubMenu key="sub3" disabled={true} icon={<FundViewOutlined/>} title="Dynamic Preview">
                     <Menu.Item key="9">option9</Menu.Item>
                     <Menu.Item key="10">option10</Menu.Item>
                     <Menu.Item key="11">option11</Menu.Item>
