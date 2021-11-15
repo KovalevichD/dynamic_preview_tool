@@ -3,7 +3,7 @@ import createCodeSnippetsReducer from "./reducers/createCodeSnippetsReducer";
 import uploadGSReducer from './reducers/uploadGSReducer'
 
 const reducers = combineReducers({
-    createCodeSnippetsReducer: createCodeSnippetsReducer,
+    dynamicCodeSnippets: createCodeSnippetsReducer,
     uploadGS: uploadGSReducer
 })
 const store = createStore(reducers)

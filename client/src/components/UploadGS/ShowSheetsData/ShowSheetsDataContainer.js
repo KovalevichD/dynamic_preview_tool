@@ -5,6 +5,7 @@ import {
     setQuantityAC,
     setTypeAC, updateElementNameAC,
 } from "../../../redux/reducers/uploadGSReducer";
+import {setDataFromGsAc} from "../../../redux/reducers/createCodeSnippetsReducer";
 
 const mapStateToProps = (state) => {
     return {
@@ -18,7 +19,8 @@ const mapDispatchToProps = (dispatch) => {
         setType: (typeObj) => dispatch(setTypeAC(typeObj)),
         setQuantity: (index, number) => dispatch(setQuantityAC(index, number)),
         updateElementName: (index, text) => dispatch(updateElementNameAC(index, text)),
-        setDataReadyFlag: (flag) => dispatch(setDataReadyFlagAC(flag))
+        setDataReadyFlag: (flag) => dispatch(setDataReadyFlagAC(flag)),
+        setDataFromGs: (data) => dispatch(setDataFromGsAc(data))
     }
 }
 

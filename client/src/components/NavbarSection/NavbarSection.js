@@ -6,7 +6,7 @@ import {NavLink} from "react-router-dom";
 const {SubMenu} = Menu;
 const {Sider} = Layout;
 
-const NavbarSection = (props) => {
+const NavbarSection = () => {
 
     return (
         <Sider width={280} style={{backgroundColor: 'transparent', paddingTop: '24px'}}>

@@ -1,5 +1,6 @@
 import store from '../redux/store';
 import getRandomRowIndexes from "./getRandomRowIndexes";
+import processValueBasedOnType from "./processValueBasedOnType";
 
 const createSnippets = () => {
     const data = store.getState().uploadGS.sheetData;
@@ -9,6 +10,7 @@ const createSnippets = () => {
         const elementTitles = element.data[0];
         const elementName = element.elementName;
         const quantity = element.quantity;
+        const types = element.selectedTypes;
         const elementSnippets = [];
 
         for (let i = 1; i < element.data.length; i++) {
@@ -19,8 +21,11 @@ const createSnippets = () => {
                 const elementObj = {};
                 const rowIndex = randomRowIndexes[j];
 
-                for (let k = 0; k < element.data[i].length; k++) {
-                    elementObj[elementTitles[k]] = element.data[rowIndex][k];
+                for (let k = 0; k < types.length; k++) {
+                    const objValue = element.data[rowIndex][k];
+                    const objType = types[k];
+
+                    elementObj[elementTitles[k]] = processValueBasedOnType(objValue, objType)
                 }
 
                 devDynamicContent[elementName].push(elementObj);

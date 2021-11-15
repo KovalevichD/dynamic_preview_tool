@@ -21,7 +21,7 @@ const initialState = {
     totalListOfSheets: [],
     listOfSheetsToUpload: [],
     sheetData: [],
-    listOfTypes: ['text', 'boolean', 'exit URL', 'image URL']
+    listOfTypes: ['Text', 'Boolean', 'Exit URL', 'Image URL', 'DateTime']
 }
 
 const uploadGSReducer = (state = initialState, action) => {

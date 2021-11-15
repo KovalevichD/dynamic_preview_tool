@@ -81,8 +81,9 @@ const ShowSheetsData = (props) => {
 
     const onClick = () => {
         props.setDataReadyFlag(true)
+        const codeSnippetsArr = createSnippets()
+        props.setDataFromGs(codeSnippetsArr)
         message.success('Dynamic snippets have been created!');
-        createSnippets()
     }
 
     return (
