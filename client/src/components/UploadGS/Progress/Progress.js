@@ -7,6 +7,8 @@ import styles from './Progress.module.css'
 const {Step} = Steps;
 
 const Progress = (props) => {
+    let step_1Disabled = !props.totalListOfSheetsLength ? styles.disabled : '';
+    let step_2Disabled = !props.sheetDataLength ? styles.disabled : '';
 
     return (
         <Steps type="navigation" current={+props.match.params.step} responsive={true}>
@@ -17,22 +19,19 @@ const Progress = (props) => {
                 icon={<NavLink className={styles.icon}
                                to='/uploadGs/step_0'><AreaChartOutlined/></NavLink>}
             />
-            <Step
-                title={<NavLink activeClassName={styles.selected}
-                                className={styles.title}
-                                to='/uploadGs/step_1'>Choose sheets to load</NavLink>}
-                icon={<NavLink className={styles.icon}
-                               to='/uploadGs/step_1'><OrderedListOutlined/></NavLink>}
+            <Step disabled={!props.totalListOfSheetsLength}
+                  title={<NavLink activeClassName={styles.selected}
+                                  className={`${styles.title} ${step_1Disabled}`}
+                                  to='/uploadGs/step_1'>Choose sheets to load</NavLink>}
+                  icon={<NavLink className={`${styles.icon} ${step_1Disabled}`}
+                                 to='/uploadGs/step_1'><OrderedListOutlined/></NavLink>}
             />
-            <Step
-                title={<NavLink activeClassName={styles.selected}
-                                className={styles.title}
-                                to='/uploadGs/step_2'>Set up the code snippet</NavLink>}
-                icon={<NavLink className={styles.icon}
-                               to='/uploadGs/step_2'><SettingOutlined/></NavLink>}/>
-            {/*<Step title='Load spreadsheet info'/>*/}
-            {/*<Step disabled={!props.totalListOfSheetsLength} title='Choose sheets to load'/>*/}
-            {/*<Step disabled={!props.sheetDataLength} title='Set up the code snippet'/>*/}
+            <Step disabled={!props.sheetDataLength}
+                  title={<NavLink activeClassName={styles.selected}
+                                  className={`${styles.title} ${step_2Disabled}`}
+                                  to='/uploadGs/step_2'>Set up the code snippet</NavLink>}
+                  icon={<NavLink className={`${styles.icon} ${step_2Disabled}`}
+                                 to='/uploadGs/step_2'><SettingOutlined/></NavLink>}/>
         </Steps>
     );
 }
