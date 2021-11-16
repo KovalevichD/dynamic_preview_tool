@@ -1,11 +1,11 @@
 import {connect} from "react-redux";
 import GetSheetInfo from "./GetSheetInfo";
 import {
-    resetGsDataAC,
-    setSheetInfoAC, toggleIsFetchingAC,
-    updateUrlInputTextAC
+    resetGsData,
+    setSheetInfo, toggleIsFetching,
+    updateUrlInputText
 } from "../../../redux/reducers/uploadGSReducer";
-import {resetDataAC} from "../../../redux/reducers/dynamicDataReducer";
+import {resetData} from "../../../redux/reducers/dynamicDataReducer";
 
 const mapStateToProps = (state) => {
     return {
@@ -15,16 +15,13 @@ const mapStateToProps = (state) => {
         spreadsheetUrl: state.uploadGS.spreadsheetUrl
     }
 }
-const mapDispatchToProps = (dispatch) => {
-    return {
-        updateUrlInputText: (text) => dispatch(updateUrlInputTextAC(text)),
-        toggleIsFetching: (isFetching) => dispatch(toggleIsFetchingAC(isFetching)),
-        setSheetInfo: (infoObj) => dispatch(setSheetInfoAC(infoObj)),
-        resetData: () => dispatch(resetDataAC()),
-        resetGsData: () => dispatch(resetGsDataAC())
-    }
-}
 
-const GetSheetInfoContainer = connect(mapStateToProps, mapDispatchToProps)(GetSheetInfo)
+const GetSheetInfoContainer = connect(mapStateToProps, {
+    resetGsData,
+    setSheetInfo,
+    toggleIsFetching,
+    updateUrlInputText,
+    resetData
+})(GetSheetInfo)
 
 export default GetSheetInfoContainer;

@@ -48,11 +48,11 @@ const uploadGSReducer = (state = initialState, action) => {
             return state
     }
 }
-export const updateUrlInputTextAC = (textStr) => ({type: UPDATE_URL_INPUT_TEXT, newText: textStr})
-export const addListOfSheetsToUploadAC = (arrList) => ({type: ADD_LIST_OF_SHEETS_TO_UPLOAD, listToUpload: arrList})
-export const toggleIsFetchingAC = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching: isFetching})
-export const setTypeAC = (typeInfoObj) => ({type: SET_TYPE, typeInfo: typeInfoObj})
-export const resetGsDataAC = () => ({type: RESET_DATA})
-export const setSheetInfoAC = (infoObj) => ({type: SET_SHEET_INFO, info: infoObj})
+export const updateUrlInputText = (textStr) => ({type: UPDATE_URL_INPUT_TEXT, newText: textStr})
+export const addListOfSheetsToUpload = (arrList) => ({type: ADD_LIST_OF_SHEETS_TO_UPLOAD, listToUpload: arrList})
+export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching: isFetching})
+export const setType = (typeInfoObj) => ({type: SET_TYPE, typeInfo: typeInfoObj})
+export const resetGsData = () => ({type: RESET_DATA})
+export const setSheetInfo = (infoObj) => ({type: SET_SHEET_INFO, info: infoObj})
 
 export default uploadGSReducer

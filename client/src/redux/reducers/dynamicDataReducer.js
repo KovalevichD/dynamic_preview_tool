@@ -81,12 +81,12 @@ const dynamicDataReducer = (state = initialState, action) => {
     }
 }
 
-export const resetDataAC = () => ({type: RESET_DATA})
-export const addDataAC = (data) => ({type: ADD_DATA, data: data})
-export const setTypeAC = (typeInfoObj) => ({type: SET_TYPE, typeInfo: typeInfoObj})
-export const setQuantityAC = (index, number) => ({type: SET_QUANTITY, index: index, quantity: number})
-export const updateElementNameAC = (index, text) => ({type: UPDATE_ELEMENT_NAME, index: index, newElementName: text})
-export const addCodeSnippetsAc = (data) => ({type: ADD_CODE_SNIPPETS, dataArr: data})
-export const setDataReadyFlagAC = (flagBoolean) => ({type: SET_DATA_READY_FLAG, flag: flagBoolean})
+export const resetData = () => ({type: RESET_DATA})
+export const addData = (data) => ({type: ADD_DATA, data: data})
+export const setType = (typeInfoObj) => ({type: SET_TYPE, typeInfo: typeInfoObj})
+export const setQuantity = (index, number) => ({type: SET_QUANTITY, index: index, quantity: number})
+export const updateElementName = (index, text) => ({type: UPDATE_ELEMENT_NAME, index: index, newElementName: text})
+export const addCodeSnippets = (data) => ({type: ADD_CODE_SNIPPETS, dataArr: data})
+export const setDataReadyFlag = (flagBoolean) => ({type: SET_DATA_READY_FLAG, flag: flagBoolean})
 
 export default dynamicDataReducer
