@@ -25,13 +25,13 @@ const ChooseSheet = (props) => {
 
         props.toggleIsFetching(false)
 
-        props.addSheetData(spreadsheetData.data.sheetsData)
+        props.addData(spreadsheetData.data.sheetsData)
         message.success('The data has been loaded!');
         setRedirect(true)
     }
 
     if (redirect) {
-        return <Redirect to='/uploadGs/setTypes'/>;
+        return <Redirect to='/uploadGs/step_2'/>;
     }
 
     return (

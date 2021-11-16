@@ -11,7 +11,7 @@ const processValueBasedOnType = (objValue, objType) => {
         case 'DateTime':
             //2011-10-10T14:48:00.000+09:00
             //11/24/2021 00:00 (-05:00)
-
+            //TODO parse date
             console.log(Date.parse("2021-11-24T00:00-05:00"))
             return {RawValue: objValue, UtcValue: ''};
         default:

@@ -20,7 +20,7 @@ const NavbarSection = () => {
                     <NavLink to="/">Start Page</NavLink>
                 </Menu.Item>
                 <SubMenu key="sub1" icon={<BarChartOutlined/>} title="Create Dynamic Content">
-                    <Menu.Item key="2"><NavLink to="/uploadGs/loadSpreadsheetInfo">Upload Google Spreadsheets</NavLink></Menu.Item>
+                    <Menu.Item key="2"><NavLink to="/uploadGs/step_0">Upload Google Spreadsheets</NavLink></Menu.Item>
                     <Menu.Item key="3">Upload CSV</Menu.Item>
                     <Menu.Item key="4">Upload .json File</Menu.Item>
                 </SubMenu>

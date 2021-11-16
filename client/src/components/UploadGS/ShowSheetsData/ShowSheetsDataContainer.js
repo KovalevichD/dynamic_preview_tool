@@ -1,16 +1,11 @@
 import {connect} from "react-redux";
 import ShowSheetsData from "./ShowSheetsData";
-import {
-    setDataReadyFlagAC,
-    setQuantityAC,
-    setTypeAC, updateElementNameAC,
-} from "../../../redux/reducers/uploadGSReducer";
-import {setDataFromGsAc} from "../../../redux/reducers/createCodeSnippetsReducer";
+import {addCodeSnippetsAc, setDataReadyFlagAC, setTypeAC, setQuantityAC, updateElementNameAC} from "../../../redux/reducers/dynamicDataReducer";
 
 const mapStateToProps = (state) => {
     return {
-        sheetData: state.uploadGS.sheetData,
-        listOfTypes: state.uploadGS.listOfTypes
+        data: state.dynamicData.data,
+        listOfTypes: state.dynamicData.listOfTypes
     }
 }
 
@@ -20,7 +15,7 @@ const mapDispatchToProps = (dispatch) => {
         setQuantity: (index, number) => dispatch(setQuantityAC(index, number)),
         updateElementName: (index, text) => dispatch(updateElementNameAC(index, text)),
         setDataReadyFlag: (flag) => dispatch(setDataReadyFlagAC(flag)),
-        setDataFromGs: (data) => dispatch(setDataFromGsAc(data))
+        addCodeSnippets: (data) => dispatch(addCodeSnippetsAc(data))
     }
 }
 

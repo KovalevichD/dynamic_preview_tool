@@ -1,9 +1,7 @@
-import store from '../redux/store';
 import getRandomRowIndexes from "./getRandomRowIndexes";
 import processValueBasedOnType from "./processValueBasedOnType";
 
-const createSnippets = () => {
-    const data = store.getState().uploadGS.sheetData;
+const createSnippets = (data) => {
     const snippets = [];
 
     data.forEach(element => {

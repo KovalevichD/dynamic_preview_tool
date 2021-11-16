@@ -29,7 +29,7 @@ const GetSheetInfo = (props) => {
     }
 
     if (redirect) {
-        return <Redirect to='/uploadGs/chooseSheets'/>;
+        return <Redirect to='/uploadGs/step_1'/>;
     }
 
     return (
@@ -38,7 +38,8 @@ const GetSheetInfo = (props) => {
                 isDisable
                     ? <ChangeSpreadsheetLink spreadsheetName={props.spreadsheetName}
                                              spreadsheetUrl={props.spreadsheetUrl}
-                                             resetData={props.resetData}/>
+                                             resetData={props.resetData}
+                                             resetGsData={props.resetGsData}/>
                     : <ProvideSpreadsheetLink urlInputText={props.urlInputText} onChange={onChange} onClick={onClick}
                                               isFetching={props.isFetching}/>
             }

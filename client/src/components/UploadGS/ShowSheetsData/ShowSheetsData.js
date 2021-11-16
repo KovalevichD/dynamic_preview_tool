@@ -9,7 +9,7 @@ import createSnippets from "../../../utils/createSnippets";
 const {Title} = Typography;
 
 const ShowSheetsData = (props) => {
-    const sheetData = props.sheetData;
+    const sheetData = props.data;
     const dataSource = [];
     const columnsArr = [];
 
@@ -81,8 +81,8 @@ const ShowSheetsData = (props) => {
 
     const onClick = () => {
         props.setDataReadyFlag(true)
-        const codeSnippetsArr = createSnippets()
-        props.setDataFromGs(codeSnippetsArr)
+        const codeSnippetsArr = createSnippets(props.data)
+        props.addCodeSnippets(codeSnippetsArr)
         message.success('Dynamic snippets have been created!');
     }
 

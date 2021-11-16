@@ -1,0 +1,20 @@
+.title {
+    display: block;
+    height: inherit;
+    color: #000;
+    user-select: none;
+}
+
+.icon {
+    color: #1890ff;
+    user-select: none;
+}
+
+.selected {
+    color: #1890ff;
+}
+
+.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}

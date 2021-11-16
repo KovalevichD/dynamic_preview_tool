@@ -1,9 +1,9 @@
 import {combineReducers, createStore} from "redux";
-import createCodeSnippetsReducer from "./reducers/createCodeSnippetsReducer";
+import dynamicDataReducer from "./reducers/dynamicDataReducer";
 import uploadGSReducer from './reducers/uploadGSReducer'
 
 const reducers = combineReducers({
-    dynamicCodeSnippets: createCodeSnippetsReducer,
+    dynamicData: dynamicDataReducer,
     uploadGS: uploadGSReducer
 })
 const store = createStore(reducers)

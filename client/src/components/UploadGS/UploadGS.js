@@ -9,10 +9,10 @@ const UploadGS = () => {
     return (
         <>
             <div style={{padding: '24px'}}>
-                <Route path={'/uploadGs/'} render={({history}) => <ProgressContainer history={history}/>}/>
-                <Route exact path={'/uploadGs/loadSpreadsheetInfo'} render={() => <GetSheetInfoContainer />}/>
-                <Route exact path={'/uploadGs/chooseSheets'} render={() => <ChooseSheetContainer />}/>
-                <Route exact path={'/uploadGs/setTypes'} render={() => <ShowSheetsDataContainer />}/>
+                <Route path={'/uploadGs/step_:step?'} render={() => <ProgressContainer />}/>
+                <Route exact path={'/uploadGs/step_0'} render={() => <GetSheetInfoContainer />}/>
+                <Route exact path={'/uploadGs/step_1'} render={() => <ChooseSheetContainer />}/>
+                <Route exact path={'/uploadGs/step_2'} render={() => <ShowSheetsDataContainer />}/>
             </div>
         </>
     );

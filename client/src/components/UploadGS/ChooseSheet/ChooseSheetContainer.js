@@ -2,9 +2,9 @@ import {connect} from "react-redux";
 import ChooseSheet from "./ChooseSheet";
 import {
     addListOfSheetsToUploadAC,
-    addSheetDataAC,
     toggleIsFetchingAC
 } from "../../../redux/reducers/uploadGSReducer";
+import {addDataAC} from "../../../redux/reducers/dynamicDataReducer";
 
 const mapStateToProps = (state) => {
     return {
@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         addListOfSheetsToUpload: (list) => dispatch(addListOfSheetsToUploadAC(list)),
         toggleIsFetching: (isFetching) => dispatch(toggleIsFetchingAC(isFetching)),
-        addSheetData: (data) => dispatch(addSheetDataAC(data)),
+        addData: (data) => dispatch(addDataAC(data))
     }
 }
 

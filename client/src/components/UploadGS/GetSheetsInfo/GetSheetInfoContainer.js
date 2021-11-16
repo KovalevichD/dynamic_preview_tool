@@ -1,10 +1,11 @@
 import {connect} from "react-redux";
 import GetSheetInfo from "./GetSheetInfo";
 import {
-    resetDataAC,
+    resetGsDataAC,
     setSheetInfoAC, toggleIsFetchingAC,
     updateUrlInputTextAC
 } from "../../../redux/reducers/uploadGSReducer";
+import {resetDataAC} from "../../../redux/reducers/dynamicDataReducer";
 
 const mapStateToProps = (state) => {
     return {
@@ -19,7 +20,8 @@ const mapDispatchToProps = (dispatch) => {
         updateUrlInputText: (text) => dispatch(updateUrlInputTextAC(text)),
         toggleIsFetching: (isFetching) => dispatch(toggleIsFetchingAC(isFetching)),
         setSheetInfo: (infoObj) => dispatch(setSheetInfoAC(infoObj)),
-        resetData: () => dispatch(resetDataAC())
+        resetData: () => dispatch(resetDataAC()),
+        resetGsData: () => dispatch(resetGsDataAC())
     }
 }
 

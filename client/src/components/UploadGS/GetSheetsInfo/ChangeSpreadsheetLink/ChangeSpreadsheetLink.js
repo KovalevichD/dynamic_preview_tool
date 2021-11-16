@@ -15,6 +15,7 @@ const ChangeSpreadsheetLink = (props) => {
             cancelText: 'Cancel',
             onOk: () => {
                 props.resetData();
+                props.resetGsData()
                 message.success('The data has been reset!');
             }
         });

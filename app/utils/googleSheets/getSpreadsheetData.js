@@ -6,7 +6,7 @@ const getSpreadsheetData = async (sheetId, sheetName, connection) => {
 
     const data = await connection.spreadsheets.values.get(options)
     return {
-        sheetName,
+        element: sheetName,
         data: data.data.values
     }
 };

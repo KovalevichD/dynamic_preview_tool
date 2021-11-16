@@ -8,9 +8,8 @@ const SelectType = (props) => {
 
     const handleChange = (value) => {
         const typeObj = {
-            sheetName: props.sheetName,
             rowIndex: props.rowIndex,
-            sheetIndex: props.sheetIndex,
+            elementIndex: props.sheetIndex,
             typeValue: value
         }
 
