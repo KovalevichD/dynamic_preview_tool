@@ -1,6 +1,7 @@
 import React from 'react';
 import {Select} from 'antd';
-const { Option } = Select;
+
+const {Option} = Select;
 
 const SelectType = (props) => {
 
@@ -18,7 +19,7 @@ const SelectType = (props) => {
 
     return (
         <>
-            <Select defaultValue={props.defaultTypes[props.rowIndex]} style={{ width: 120 }} onChange={handleChange}>
+            <Select defaultValue={props.defaultTypes[props.rowIndex]} style={{width: 120}} onChange={handleChange}>
                 {options}
             </Select>
         </>

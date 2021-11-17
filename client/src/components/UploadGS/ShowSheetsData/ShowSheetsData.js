@@ -92,8 +92,8 @@ const ShowSheetsData = (props) => {
                 each property</Title>
             {tables}
 
-            <Link to='/uploadGsResult'><Button onClick={onClick} type="primary">Continue</Button></Link>
-            <BackTop />
+            <Link to='/uploadGsResult'><Button onClick={onClick} type="primary">BUILD DATA</Button></Link>
+            <BackTop/>
         </>
     );
 }

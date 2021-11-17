@@ -14,9 +14,12 @@ const initialState = {
 }
 
 const dynamicDataReducer = (state = initialState, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case RESET_DATA:
-            return initialState
+            return {
+                ...initialState,
+                isDataReady: false
+            }
         case ADD_DATA:
             const processedData = [];
 
@@ -89,4 +92,4 @@ export const updateElementName = (index, text) => ({type: UPDATE_ELEMENT_NAME, i
 export const addCodeSnippets = (data) => ({type: ADD_CODE_SNIPPETS, dataArr: data})
 export const setDataReadyFlag = (flagBoolean) => ({type: SET_DATA_READY_FLAG, flag: flagBoolean})
 
-export default dynamicDataReducer
+export default dynamicDataReducer;

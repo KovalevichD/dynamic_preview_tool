@@ -47,7 +47,8 @@ const ChooseSheet = (props) => {
             >
                 {optionsList}
             </Select>
-            <Button type="primary" onClick={onClick} loading={props.isFetching} disabled={isDisabled} style={{marginLeft: '20px'}}>Select Types</Button>
+            <Button type="primary" onClick={onClick} loading={props.isFetching} disabled={isDisabled}
+                    style={{marginLeft: '20px'}}>LOAD SHEETS</Button>
         </>
     );
 }

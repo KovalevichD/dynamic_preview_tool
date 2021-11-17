@@ -1,7 +1,7 @@
 import React from 'react';
 import {Steps} from 'antd';
 import {NavLink} from "react-router-dom";
-import {OrderedListOutlined, SettingOutlined, AreaChartOutlined} from '@ant-design/icons';
+import {HddFilled, SettingFilled, AreaChartOutlined} from '@ant-design/icons';
 import styles from './Progress.module.css'
 
 const {Step} = Steps;
@@ -24,14 +24,14 @@ const Progress = (props) => {
                                   className={`${styles.title} ${step_1Disabled}`}
                                   to='/uploadGs/step_1'>Choose sheets to load</NavLink>}
                   icon={<NavLink className={`${styles.icon} ${step_1Disabled}`}
-                                 to='/uploadGs/step_1'><OrderedListOutlined/></NavLink>}
+                                 to='/uploadGs/step_1'><HddFilled /></NavLink>}
             />
             <Step disabled={!props.sheetDataLength}
                   title={<NavLink activeClassName={styles.selected}
                                   className={`${styles.title} ${step_2Disabled}`}
                                   to='/uploadGs/step_2'>Set up the code snippet</NavLink>}
                   icon={<NavLink className={`${styles.icon} ${step_2Disabled}`}
-                                 to='/uploadGs/step_2'><SettingOutlined/></NavLink>}/>
+                                 to='/uploadGs/step_2'><SettingFilled /></NavLink>}/>
         </Steps>
     );
 }

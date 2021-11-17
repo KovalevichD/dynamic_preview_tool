@@ -1,6 +1,7 @@
 import React from 'react';
 import {InputNumber, Typography} from 'antd';
-const { Paragraph} = Typography;
+
+const {Paragraph} = Typography;
 
 const TableHeader = (props) => {
 
@@ -10,7 +11,7 @@ const TableHeader = (props) => {
 
     return (
         <div style={{display: 'flex'}}>
-            <Paragraph >Quantity:</Paragraph>
+            <Paragraph>Quantity:</Paragraph>
             <InputNumber min={1} max={props.dataLength - 1}
                          value={props.quantity}
                          onChange={onQuantityChange}/>

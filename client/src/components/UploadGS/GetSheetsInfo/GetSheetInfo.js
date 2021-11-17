@@ -3,7 +3,7 @@ import {getSheetsList} from "../../../api/api";
 import {Redirect} from "react-router-dom";
 import ChangeSpreadsheetLink from "./ChangeSpreadsheetLink/ChangeSpreadsheetLink";
 import ProvideSpreadsheetLink from "./ProvideSpreadsheetLink/ProvideSpreadsheetLink";
-import { message } from 'antd';
+import {message} from 'antd';
 
 const GetSheetInfo = (props) => {
     const [redirect, setRedirect] = useState(false);

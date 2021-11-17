@@ -1,6 +1,12 @@
 import {connect} from "react-redux";
 import ShowSheetsData from "./ShowSheetsData";
-import {addCodeSnippets, setDataReadyFlag, setType, setQuantity, updateElementName} from "../../../redux/reducers/dynamicDataReducer";
+import {
+    addCodeSnippets,
+    setDataReadyFlag,
+    setType,
+    setQuantity,
+    updateElementName
+} from "../../../redux/reducers/dynamicDataReducer";
 
 const mapStateToProps = (state) => {
     return {

@@ -6,12 +6,13 @@ import {NavLink} from "react-router-dom";
 const {SubMenu} = Menu;
 const {Sider} = Layout;
 
-const NavbarSection = () => {
+const NavbarSection = (props) => {
 
     return (
-        <Sider width={280} style={{backgroundColor: 'transparent', paddingTop: '24px'}}>
+        <Sider width={280} style={{backgroundColor: 'transparent', paddingTop: '84px'}}>
             <Menu
                 mode="inline"
+                // mode="horizontal"
                 defaultSelectedKeys={['1']}
                 defaultOpenKeys={['sub1']}
                 style={{borderRight: 0}}
@@ -24,13 +25,13 @@ const NavbarSection = () => {
                     <Menu.Item key="3">Upload CSV</Menu.Item>
                     <Menu.Item key="4">Upload .json File</Menu.Item>
                 </SubMenu>
-                <SubMenu key="sub2" disabled={true} icon={<SaveOutlined/>} title="Save Your Creatives">
+                <SubMenu key="sub2" disabled={!props.isDataReady} icon={<SaveOutlined/>} title="Save Your Creatives">
                     <Menu.Item key="5">option5</Menu.Item>
                     <Menu.Item key="6">option6</Menu.Item>
                     <Menu.Item key="7">option7</Menu.Item>
                     <Menu.Item key="8">option8</Menu.Item>
                 </SubMenu>
-                <SubMenu key="sub3" disabled={true} icon={<FundViewOutlined/>} title="Dynamic Preview">
+                <SubMenu key="sub3" disabled={!props.isDataReady} icon={<FundViewOutlined/>} title="Dynamic Preview">
                     <Menu.Item key="9">option9</Menu.Item>
                     <Menu.Item key="10">option10</Menu.Item>
                     <Menu.Item key="11">option11</Menu.Item>

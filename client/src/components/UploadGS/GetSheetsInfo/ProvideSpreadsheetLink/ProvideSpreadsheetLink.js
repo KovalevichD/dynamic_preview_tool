@@ -17,10 +17,10 @@ const GetSheetInfo = (props) => {
                    placeholder="Spreadsheet URL"
                    style={{width: '50%'}}/>
 
-                <Button onClick={props.onClick}
-                        loading={props.isFetching}
-                        type="primary"
-                        style={{marginLeft: '20px'}}>Load Sheet</Button>
+            <Button onClick={props.onClick}
+                    loading={props.isFetching}
+                    type="primary"
+                    style={{marginLeft: '20px'}}>LOAD SPREADSHEET</Button>
         </>
     );
 }
