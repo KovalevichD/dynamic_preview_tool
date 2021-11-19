@@ -1,21 +1,21 @@
 import React from 'react';
-import {Layout, Menu} from 'antd';
-import {BarChartOutlined, SaveOutlined, FundViewOutlined, HomeOutlined} from '@ant-design/icons';
+import {Menu} from 'antd';
+import {BarChartOutlined, SaveOutlined, FundViewOutlined, HomeOutlined, DatabaseOutlined} from '@ant-design/icons';
 import {NavLink} from "react-router-dom";
 
 const {SubMenu} = Menu;
-const {Sider} = Layout;
+
 
 const NavbarSection = (props) => {
 
     return (
-        <Sider width={280} style={{backgroundColor: 'transparent', paddingTop: '84px'}}>
-            <Menu
-                mode="inline"
-                // mode="horizontal"
-                defaultSelectedKeys={['1']}
-                defaultOpenKeys={['sub1']}
-                style={{borderRight: 0}}
+            <Menu style={{backgroundColor: 'none'}}
+                // mode="inline"
+                mode="horizontal"
+                  theme="dark"
+                // defaultSelectedKeys={['1']}
+                // defaultOpenKeys={['sub1']}
+                // style={{borderRight: 0}}
             >
                 <Menu.Item key="1" icon={<HomeOutlined/>}>
                     <NavLink to="/">Start Page</NavLink>
@@ -37,8 +37,12 @@ const NavbarSection = (props) => {
                     <Menu.Item key="11">option11</Menu.Item>
                     <Menu.Item key="12">option12</Menu.Item>
                 </SubMenu>
+                <SubMenu key="sub4" disabled={!props.isDataReady} icon={<DatabaseOutlined />} title="Loaded Data">
+                    <Menu.Item key="13">Get JSON File</Menu.Item>
+                    <Menu.Item key="14">Edit Data</Menu.Item>
+                    <Menu.Item key="15">Reset Data</Menu.Item>
+                </SubMenu>
             </Menu>
-        </Sider>
     );
 }
 

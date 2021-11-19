@@ -5,16 +5,23 @@ const SET_TYPE = 'SET_TYPE';
 const SET_QUANTITY = 'SET_QUANTITY';
 const UPDATE_ELEMENT_NAME = 'UPDATE_ELEMENT_NAME';
 const RESET_DATA = 'RESET_DATA';
+const SET_DYNAMIC_ID = 'SET_DYNAMIC_ID';
 
 const initialState = {
     isDataReady: false,
     listOfTypes: ['Text', 'Boolean', 'Exit URL', 'Image URL', 'DateTime'],
-    snippets: [],
-    data: []
+    snippets: null,
+    data: [],
+    dynamicId: ''
 }
 
 const dynamicDataReducer = (state = initialState, action) => {
     switch (action.type) {
+        case SET_DYNAMIC_ID:
+            return {
+                ...state,
+                dynamicId: action.id
+            }
         case RESET_DATA:
             return {
                 ...initialState,
@@ -72,7 +79,7 @@ const dynamicDataReducer = (state = initialState, action) => {
         case ADD_CODE_SNIPPETS:
             return {
                 ...state,
-                snippets: [...action.dataArr]
+                snippets: action.dataMap
             }
         case SET_DATA_READY_FLAG:
             return {
@@ -89,7 +96,8 @@ export const addData = (data) => ({type: ADD_DATA, data: data})
 export const setType = (typeInfoObj) => ({type: SET_TYPE, typeInfo: typeInfoObj})
 export const setQuantity = (index, number) => ({type: SET_QUANTITY, index: index, quantity: number})
 export const updateElementName = (index, text) => ({type: UPDATE_ELEMENT_NAME, index: index, newElementName: text})
-export const addCodeSnippets = (data) => ({type: ADD_CODE_SNIPPETS, dataArr: data})
+export const addCodeSnippets = (data) => ({type: ADD_CODE_SNIPPETS, dataMap: data})
 export const setDataReadyFlag = (flagBoolean) => ({type: SET_DATA_READY_FLAG, flag: flagBoolean})
+export const setDynamicId = (id) => ({type: SET_DYNAMIC_ID, id: id})
 
 export default dynamicDataReducer;

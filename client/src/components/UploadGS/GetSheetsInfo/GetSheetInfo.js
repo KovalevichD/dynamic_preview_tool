@@ -23,11 +23,6 @@ const GetSheetInfo = (props) => {
         setRedirect(true)
     }
 
-    const onChange = () => {
-        const text = document.getElementById('input').value
-        props.updateUrlInputText(text)
-    }
-
     if (redirect) {
         return <Redirect to='/uploadGs/step_1'/>;
     }
@@ -40,7 +35,9 @@ const GetSheetInfo = (props) => {
                                              spreadsheetUrl={props.spreadsheetUrl}
                                              resetData={props.resetData}
                                              resetGsData={props.resetGsData}/>
-                    : <ProvideSpreadsheetLink urlInputText={props.urlInputText} onChange={onChange} onClick={onClick}
+                    : <ProvideSpreadsheetLink urlInputText={props.urlInputText}
+                                              onClick={onClick}
+                                              updateUrlInputText={props.updateUrlInputText}
                                               isFetching={props.isFetching}/>
             }
         </>

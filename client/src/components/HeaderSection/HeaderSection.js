@@ -1,18 +1,15 @@
 import React from 'react';
 import {Layout} from 'antd';
-import {CheckSquareOutlined} from '@ant-design/icons';
-import LoadedData from "./LoadedData/LoadedData";
+import NavbarSectionContainer from "./NavbarSection/NavbarSectionContainer";
 
 const {Header} = Layout;
 
 const HeaderSection = (props) => {
     return (
-        <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
-            <div className="logo"/>
-            <div>
-                {
-                    props.isDataReady && <LoadedData />
-                }
+        <Header>
+            <div style={{maxWidth: '960px', margin: '0 auto'}}>
+                {/*<div className="logo"/>*/}
+                <NavbarSectionContainer/>
             </div>
         </Header>
     );

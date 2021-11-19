@@ -5,7 +5,7 @@ import {
     setDataReadyFlag,
     setType,
     setQuantity,
-    updateElementName
+    updateElementName, setDynamicId
 } from "../../../redux/reducers/dynamicDataReducer";
 
 const mapStateToProps = (state) => {
@@ -20,7 +20,8 @@ const ShowSheetsDataContainer = connect(mapStateToProps, {
     setDataReadyFlag,
     setType,
     setQuantity,
-    updateElementName
+    updateElementName,
+    setDynamicId
 })(ShowSheetsData)
 
 export default ShowSheetsDataContainer;

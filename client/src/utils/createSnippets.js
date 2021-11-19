@@ -1,5 +1,6 @@
 import getRandomRowIndexes from "./getRandomRowIndexes";
 import processValueBasedOnType from "./processValueBasedOnType";
+import createAllSnippetVariations from "./createAllSnippetVariations";
 
 const createSnippets = (data) => {
     const snippets = [];
@@ -12,7 +13,7 @@ const createSnippets = (data) => {
         const elementSnippets = [];
 
         for (let i = 1; i < element.data.length; i++) {
-            const devDynamicContent = {[elementName]: []};
+            const devDynamicContent = {dynamicData: [], uniqueString: '', elementName};
             const randomRowIndexes = getRandomRowIndexes(i, quantity, element.data.length - 1);
 
             for (let j = 0; j < quantity; j++) {
@@ -26,13 +27,13 @@ const createSnippets = (data) => {
                     elementObj[elementTitles[k]] = processValueBasedOnType(objValue, objType)
                 }
 
-                devDynamicContent[elementName].push(elementObj);
+                devDynamicContent.dynamicData.push(elementObj);
             }
+            devDynamicContent.uniqueString = `${elementName}(${element.data[i][0]})`
             elementSnippets.push(devDynamicContent);
         }
         snippets.push(elementSnippets);
     })
-    return snippets;
+    return createAllSnippetVariations(snippets)
 }
-
 export default createSnippets;

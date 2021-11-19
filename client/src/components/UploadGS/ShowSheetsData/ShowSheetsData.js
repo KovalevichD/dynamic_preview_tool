@@ -1,5 +1,5 @@
-import React from 'react';
-import {BackTop, Table, Button, Typography, message} from 'antd';
+import React, {useRef, useState} from 'react';
+import {BackTop, Table, Button, Typography, message, Input} from 'antd';
 import SelectType from "./SelectType/SelectType";
 import {Link} from "react-router-dom";
 import TableHeader from "./TableHeader/TableHeader";
@@ -9,6 +9,8 @@ import createSnippets from "../../../utils/createSnippets";
 const {Title} = Typography;
 
 const ShowSheetsData = (props) => {
+    const [dynamicId, setDynamicId] = useState('')
+    const dynamicIdInputRef = useRef(null);
     const sheetData = props.data;
     const dataSource = [];
     const columnsArr = [];
@@ -81,6 +83,7 @@ const ShowSheetsData = (props) => {
 
     const onClick = () => {
         props.setDataReadyFlag(true)
+        props.setDynamicId(dynamicId)
         const codeSnippetsArr = createSnippets(props.data)
         props.addCodeSnippets(codeSnippetsArr)
         message.success('Dynamic snippets have been created!');
@@ -88,6 +91,13 @@ const ShowSheetsData = (props) => {
 
     return (
         <>
+            <Title level={4} style={{textAlign: 'left', marginTop: '50px'}}>Specify the dynamic ID</Title>
+            <Input ref={dynamicIdInputRef}
+                   onChange={e => setDynamicId(e.target.value)}
+                   allowClear={true}
+                   value={dynamicId}
+                   placeholder="Dynamic ID"
+                   style={{width: '50%'}}/>
             <Title level={4} style={{textAlign: 'left', marginTop: '50px', marginBottom: '20px'}}>Choose field type for
                 each property</Title>
             {tables}
