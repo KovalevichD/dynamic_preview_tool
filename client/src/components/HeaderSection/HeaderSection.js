@@ -6,10 +6,10 @@ const {Header} = Layout;
 
 const HeaderSection = (props) => {
     return (
-        <Header>
-            <div style={{maxWidth: '960px', margin: '0 auto'}}>
+        <Header style={{height: '50px', lineHeight: '50px'}}>
+            <div style={{maxWidth: '990px', margin: '0 auto', height: '50px'}}>
                 {/*<div className="logo"/>*/}
-                <NavbarSectionContainer/>
+                <NavbarSectionContainer />
             </div>
         </Header>
     );
