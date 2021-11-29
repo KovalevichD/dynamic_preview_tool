@@ -1,19 +1,19 @@
 import React from 'react';
-import {Upload, Button} from 'antd';
-import {InboxOutlined} from '@ant-design/icons';
+import {Button, Space, Spin} from 'antd';
 import axios from 'axios';
+import ListToUpload from "./ListToUpload/ListToUpload";
+import DragField from "./DragField/DragField";
+// import {Prompt} from "react-router-dom";
 
-const {Dragger} = Upload;
-
-const UploadCreatives = () => {
-    const filesArray = [];
+const UploadCreatives = (props) => {
 
     const onClick = async () => {
+        props.toggleIsFetching(true);
         const fmData = new FormData();
 
-        for (let i = 0; i < filesArray.length; i++) {
-            fmData.append("files", filesArray[i]);
-            fmData.append("webkitRelativePath", filesArray[i].webkitRelativePath);
+        for (let i = 0; i < props.filesToUpload.length; i++) {
+            fmData.append("files", props.filesToUpload[i]);
+            fmData.append("webkitRelativePath", props.filesToUpload[i].webkitRelativePath);
         }
 
         const res = await axios.post(
@@ -23,35 +23,37 @@ const UploadCreatives = () => {
         );
 
         console.log(res);
-    }
-    const beforeUpload = async (file, files) => {
-        filesArray.push(file)
-        return false;
+        props.toggleIsFetching(false);
+        props.resetFilesToLoad()
     }
 
     return (
         <>
-            <Dragger name='file'
-                     accept='image/*,.css,.js,.html,.woff2,.woff,.mp4,.ogv,.webp'
-                     showUploadList={false}
-                     multiple={true}
-                     directory={true}
-                // defaultFileList={fileList}
-                     beforeUpload={beforeUpload}
-            >
-                <p className="ant-upload-drag-icon">
-                    <InboxOutlined/>
-                </p>
-                <p className="ant-upload-text">Click or drag file to this area to upload</p>
-                <p className="ant-upload-hint">
-                    Support for a single or bulk upload. Strictly prohibit from uploading company data or other
-                    band files
-                </p>
-            </Dragger>
-            <Button onClick={onClick}
-                // loading={props.isFetching}
-                    type="primary"
-                    style={{marginLeft: '20px'}}>UPLOAD</Button>
+            {
+                props.filesToUpload.length !== props.amountOfFilesToLoad && <DragField
+                    addFileToLoad={props.addFileToLoad}
+                    setAmountOfFilesToLoad={props.setAmountOfFilesToLoad}/>
+            }
+            {
+                props.filesToUpload.length !== 0 &&
+                <Spin size="large" spinning={props.isFetching} tip="Uploading creatives to the server..." delay={500}>
+                    <Space style={{margin: '20px 0 0 20px'}}>
+                        <Button onClick={onClick}
+                                loading={props.isFetching}
+                                type="primary">UPLOAD TO THE SERVER
+                        </Button>
+                        <Button onClick={() => props.resetFilesToLoad()}
+                                type="primary"
+                                ghost>CHOOSE ANOTHER FOLDER
+                        </Button>
+                    </Space>
+                    <ListToUpload filesInFolders={props.filesInFolders} removeFilesToLoad={props.removeFilesToLoad}/>
+                </Spin>
+            }
+            {/*<Prompt message={JSON.stringify({*/}
+            {/*    header: 'Warning!',*/}
+            {/*    content: 'You will lose the downloaded data if you leave the page'*/}
+            {/*})} when={props.filesToUpload.length > 0} resetFilesToLoad={props.resetFilesToLoad}/>*/}
         </>
     );
 }

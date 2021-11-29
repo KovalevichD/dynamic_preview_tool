@@ -3,7 +3,8 @@ import {Typography} from 'antd';
 
 const {Title} = Typography;
 
-const StartPage = (props) => {
+const StartPage = () => {
+
     return (
         <>
             <Title level={1} style={{textAlign: 'center'}}>Getting Started</Title>

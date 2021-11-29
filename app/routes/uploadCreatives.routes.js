@@ -11,14 +11,12 @@ router.post('/upload',
     async (req, res) => {
         try {
             //TODO add custom validators
+            const uploadedFiles = await uploadCreatives(req.files.files, req.body.webkitRelativePath)
 
-            const folders = await uploadCreatives(req.files.files, req.body.webkitRelativePath)
-
-            res.status(200).json({folders: folders})
+            res.status(200).json({uploadedFiles: uploadedFiles})
 
         } catch (e) {
-            console.log(e)
-            res.status(500).json({message: 'Something wrong with loading files'})
+            res.status(500).json({message: 'Something wrong with uploading files to the server'})
         }
     })
 
