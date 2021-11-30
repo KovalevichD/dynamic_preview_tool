@@ -3,9 +3,9 @@ import {
     addFilesUploadedToServer,
     addFileToLoad,
     removeFilesToLoad, resetFiles,
-    setAmountOfFilesToLoad, toggleIsFetching
-} from "../../redux/reducers/uploadCreativesReducer";
-import UploadCreatives from "./UploadCreatives";
+    setAmountOfFilesToLoad, toggleIsCreativesReady, toggleIsFetching
+} from "../../../redux/reducers/uploadCreativesReducer";
+import UploadCreativesProcess from "./UploadCreativesProcess";
 
 const mapStateToProps = (state) => {
     return {
@@ -13,7 +13,8 @@ const mapStateToProps = (state) => {
         filesToUpload: state.uploadCreatives.filesToUpload,
         amountOfFilesToLoad: state.uploadCreatives.amountOfFilesToLoad,
         isFetching: state.uploadCreatives.isFetching,
-        uploadedFiles: state.uploadCreatives.uploadedFiles
+        uploadedFiles: state.uploadCreatives.uploadedFiles,
+        isCreativesReady: state.uploadCreatives.isCreativesReady
     }
 }
 const UploadCreativesContainer = connect(mapStateToProps, {
@@ -22,7 +23,8 @@ const UploadCreativesContainer = connect(mapStateToProps, {
     resetFiles,
     setAmountOfFilesToLoad,
     toggleIsFetching,
-    addFilesUploadedToServer
-})(UploadCreatives)
+    addFilesUploadedToServer,
+    toggleIsCreativesReady
+})(UploadCreativesProcess)
 
 export default UploadCreativesContainer;

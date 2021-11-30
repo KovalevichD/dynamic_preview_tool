@@ -14,7 +14,6 @@ const {SubMenu} = Menu;
 
 
 const NavbarSection = (props) => {
-
     return (
         <Menu style={{backgroundColor: 'none'}} mode="horizontal" theme="dark">
             <Menu.Item key="1" icon={<HomeOutlined/>}>
@@ -28,10 +27,10 @@ const NavbarSection = (props) => {
                 <Menu.Item key="4">Upload CSV</Menu.Item>
                 <Menu.Item key="5">Upload .json File</Menu.Item>
             </SubMenu>
-            <SubMenu key="sub2" disabled={!props.isDataReady} icon={<SaveOutlined/>} title="SAVE CREATIVEs">
-                <Menu.Item key="6">option5</Menu.Item>
+            <SubMenu key="sub2" disabled={ !props.isDataReady || !props.isCreativesReady} icon={<SaveOutlined/>} title="SAVE CREATIVES">
+                <Menu.Item key="6">Get all versions</Menu.Item>
             </SubMenu>
-            <SubMenu key="sub3" disabled={!props.isDataReady} icon={<FundViewOutlined/>} title="PREVIEW">
+            <SubMenu key="sub3" disabled={!props.isDataReady || !props.isCreativesReady} icon={<FundViewOutlined/>} title="PREVIEW">
                 <Menu.Item key="7">option9</Menu.Item>
             </SubMenu>
             <SubMenu key="sub4" disabled={!props.isDataReady} icon={<DatabaseOutlined/>} title="DATA">

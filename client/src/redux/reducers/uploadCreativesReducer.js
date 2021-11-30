@@ -4,23 +4,30 @@ const RESET_FILES = 'RESET_FILES';
 const SET_AMOUNT_OF_FILES_TO_LOAD = 'SET_AMOUNT_OF_FILES_TO_LOAD';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 const ADD_FILES_UPLOADED_TO_SERVER = 'ADD_FILES_UPLOADED_TO_SERVER';
+const TOGGLE_IS_CREATIVES_READY = 'TOGGLE_IS_CREATIVES_READY';
 
 const initialState = {
     filesInFolders: {},
     filesToUpload: [],
     uploadedFiles: {},
     amountOfFilesToLoad: null,
-    isFetching: false
+    isFetching: false,
+    isCreativesReady: false
 }
 
 const uploadCreativesReducer = (state = initialState, action) => {
     switch (action.type) {
         case RESET_FILES:
             return initialState;
+        case TOGGLE_IS_CREATIVES_READY:
+            return {
+                ...state,
+                isCreativesReady: action.isReady
+            }
         case ADD_FILES_UPLOADED_TO_SERVER:
             return {
                 ...state,
-                uploadedFiles: action.uploadedFiles,
+                uploadedFiles: action.uploadedFiles
             }
         case ADD_FILE_TO_LOAD:
             const splitFilePath = action.file.webkitRelativePath.split('/');
@@ -75,6 +82,7 @@ export const removeFilesToLoad = (folder) => ({type: REMOVE_FILES_TO_LOAD, folde
 export const resetFiles = () => ({type: RESET_FILES});
 export const setAmountOfFilesToLoad = (amount) => ({type: SET_AMOUNT_OF_FILES_TO_LOAD, amountOfFiles: amount});
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching: isFetching});
+export const toggleIsCreativesReady = (isReady) => ({type: TOGGLE_IS_CREATIVES_READY, isReady: isReady});
 export const addFilesUploadedToServer = (uploadedFiles) => ({type: ADD_FILES_UPLOADED_TO_SERVER, uploadedFiles: uploadedFiles});
 
 
