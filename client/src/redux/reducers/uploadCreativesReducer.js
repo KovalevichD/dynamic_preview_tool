@@ -1,20 +1,27 @@
 const ADD_FILE_TO_LOAD = 'ADD_FILE_TO_LOAD';
 const REMOVE_FILES_TO_LOAD = 'REMOVE_FILES_TO_LOAD';
-const RESET_FILES_TO_LOAD = 'RESET_FILES_TO_LOAD';
+const RESET_FILES = 'RESET_FILES';
 const SET_AMOUNT_OF_FILES_TO_LOAD = 'SET_AMOUNT_OF_FILES_TO_LOAD';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+const ADD_FILES_UPLOADED_TO_SERVER = 'ADD_FILES_UPLOADED_TO_SERVER';
 
 const initialState = {
     filesInFolders: {},
     filesToUpload: [],
+    uploadedFiles: {},
     amountOfFilesToLoad: null,
     isFetching: false
 }
 
 const uploadCreativesReducer = (state = initialState, action) => {
     switch (action.type) {
-        case RESET_FILES_TO_LOAD:
+        case RESET_FILES:
             return initialState;
+        case ADD_FILES_UPLOADED_TO_SERVER:
+            return {
+                ...state,
+                uploadedFiles: action.uploadedFiles,
+            }
         case ADD_FILE_TO_LOAD:
             const splitFilePath = action.file.webkitRelativePath.split('/');
             const folder = splitFilePath[splitFilePath.length - 2];
@@ -41,11 +48,13 @@ const uploadCreativesReducer = (state = initialState, action) => {
                 return elem.webkitRelativePath.indexOf(action.folderName) === -1
             })
 
+            let amountOfFiles = filesToUploadNewArr.length !== 0 ? filesToUploadNewArr.length : null;
+
             return {
                 ...state,
                 filesInFolders: removeFolderNewObj,
                 filesToUpload: filesToUploadNewArr,
-                amountOfFilesToLoad: filesToUploadNewArr.length
+                amountOfFilesToLoad: amountOfFiles
             }
         case SET_AMOUNT_OF_FILES_TO_LOAD:
             return {
@@ -63,9 +72,10 @@ const uploadCreativesReducer = (state = initialState, action) => {
 }
 export const addFileToLoad = (file) => ({type: ADD_FILE_TO_LOAD, file: file});
 export const removeFilesToLoad = (folder) => ({type: REMOVE_FILES_TO_LOAD, folderName: folder});
-export const resetFilesToLoad = () => ({type: RESET_FILES_TO_LOAD});
+export const resetFiles = () => ({type: RESET_FILES});
 export const setAmountOfFilesToLoad = (amount) => ({type: SET_AMOUNT_OF_FILES_TO_LOAD, amountOfFiles: amount});
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching: isFetching});
+export const addFilesUploadedToServer = (uploadedFiles) => ({type: ADD_FILES_UPLOADED_TO_SERVER, uploadedFiles: uploadedFiles});
 
 
 export default uploadCreativesReducer

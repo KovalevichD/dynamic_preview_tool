@@ -1,9 +1,9 @@
 import React from 'react';
-import {Button, Space, Spin} from 'antd';
+import {Spin} from 'antd';
 import axios from 'axios';
-import ListToUpload from "./ListToUpload/ListToUpload";
 import DragField from "./DragField/DragField";
-// import {Prompt} from "react-router-dom";
+import UploadedCreativesList from "./UploadedCreativesList/UploadedCreativesList";
+import CreativesToUploadList from "./CreativesToUploadList/CreativesToUploadList";
 
 const UploadCreatives = (props) => {
 
@@ -22,39 +22,41 @@ const UploadCreatives = (props) => {
             {headers: {"content-type": "multipart/form-data"}}
         );
 
-        console.log(res);
         props.toggleIsFetching(false);
-        props.resetFilesToLoad()
+        props.resetFiles();
+        props.addFilesUploadedToServer(res.data.uploadedFiles);
     }
 
     return (
-        <>
+        <Spin size="large" spinning={props.isFetching} tip="Uploading creatives to the server..." delay={500}>
             {
-                props.filesToUpload.length !== props.amountOfFilesToLoad && <DragField
+                props.filesToUpload.length !== props.amountOfFilesToLoad
+                && Object.keys(props.uploadedFiles).length === 0
+                && <DragField
                     addFileToLoad={props.addFileToLoad}
-                    setAmountOfFilesToLoad={props.setAmountOfFilesToLoad}/>
+                    setAmountOfFilesToLoad={props.setAmountOfFilesToLoad}
+                />
             }
             {
-                props.filesToUpload.length !== 0 &&
-                <Spin size="large" spinning={props.isFetching} tip="Uploading creatives to the server..." delay={500}>
-                    <Space style={{margin: '20px 0 0 20px'}}>
-                        <Button onClick={onClick}
-                                loading={props.isFetching}
-                                type="primary">UPLOAD TO THE SERVER
-                        </Button>
-                        <Button onClick={() => props.resetFilesToLoad()}
-                                type="primary"
-                                ghost>CHOOSE ANOTHER FOLDER
-                        </Button>
-                    </Space>
-                    <ListToUpload filesInFolders={props.filesInFolders} removeFilesToLoad={props.removeFilesToLoad}/>
-                </Spin>
+                Object.keys(props.uploadedFiles).length !== 0
+                && <UploadedCreativesList
+                    filesInFolders={props.uploadedFiles}
+                    uploadedFiles={props.uploadedFiles}
+                    resetFiles={props.resetFiles}
+                />
             }
-            {/*<Prompt message={JSON.stringify({*/}
-            {/*    header: 'Warning!',*/}
-            {/*    content: 'You will lose the downloaded data if you leave the page'*/}
-            {/*})} when={props.filesToUpload.length > 0} resetFilesToLoad={props.resetFilesToLoad}/>*/}
-        </>
+            {
+                props.filesToUpload.length !== 0
+                && <CreativesToUploadList
+                    filesInFolders={props.filesInFolders}
+                    removeFilesToLoad={props.removeFilesToLoad}
+                    uploadedFiles={props.uploadedFiles}
+                    resetFiles={props.resetFiles}
+                    isFetching={props.isFetching}
+                    onClick={onClick}
+                />
+            }
+        </Spin>
     );
 }
 

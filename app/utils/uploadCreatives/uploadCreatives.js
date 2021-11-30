@@ -6,6 +6,8 @@ const uploadCreatives = async (files, webkitRelativePath) => {
         const rootFolder = path.join(__dirname, '../../uploads');
         const uploadedFiles = {};
 
+        fs.emptyDirSync(rootFolder)
+
         for (let i = 0; i < files.length; i++) {
             const file = files[i];
             const fileName = file.name;
