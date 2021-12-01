@@ -1,18 +1,20 @@
 import React from 'react';
 import {Result, Button} from 'antd';
-import {DownloadOutlined, EditOutlined} from "@ant-design/icons";
+import {DownloadOutlined, HomeOutlined} from "@ant-design/icons";
+import {Link} from "react-router-dom";
 
 const UploadResult = () => {
-
     return (
         <>
             <Result
                 status="success"
                 title="Successfully Uploaded Creatives!"
-                subTitle="Make sure you have loaded and configured dynamic data. And then you can get static versions of your dynamic creatives. You can also view all versions in the Preview section."
+                subTitle="You have just successfully uploaded creatives to the system.
+                Your uploaded creatives will be used to create all the variations and to preview the dynamic company in the future.
+                Tip: Now you can upload and configure dynamic data."
                 extra={[
-                    <Button type="primary" key="console"><DownloadOutlined/>LOAD DYNAMIC DATA</Button>,
-                    <Button key="buy" type="primary" ghost><EditOutlined/>RESET UPLOADED CREATIVES</Button>,
+                    <Link key="showCreatives" to={'/uploadCreatives'}><Button type="primary"><DownloadOutlined/>Show Uploaded Creatives</Button></Link>,
+                    <Link key="home" to={'/'}><Button type="primary" ghost><HomeOutlined/>GO TO HOME PAGE</Button></Link>
                 ]}
             />
         </>

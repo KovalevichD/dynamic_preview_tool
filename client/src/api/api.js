@@ -6,7 +6,6 @@ const instanceSpreadsheet = axios.create({
     }
 });
 
-
 export const spreadsheetAPI = {
     getSheetList(url) {
         return instanceSpreadsheet.post('/uploadGS/sheetInfo', {url})
@@ -18,7 +17,7 @@ export const spreadsheetAPI = {
 
 export const uploadCreativesAPI = {
     uploadFiles(files) {
-        return axios.post('/uploadCreatives/upload', {files}, {headers: {'Content-Type': 'multipart/form-data'}})
+        return axios.post('/uploadCreatives/upload', files, {headers: {'Content-Type': 'multipart/form-data'}})
     }
 };
 

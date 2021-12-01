@@ -10,14 +10,23 @@ const CreativesToUploadList = (props) => {
         try {
             await props.uploadFiles(props.filesToUpload);
 
-            history.push("/uploadCreatives/result")
+            history.push('/uploadCreatives/result');
+
+            notification.success({
+                message: 'Success!',
+                description:
+                    'Creatives have been successfully uploaded.',
+                placement: 'bottomRight'
+            });
         } catch (e) {
-            props.toggleIsFetching(false)
+            props.toggleIsFetching(false);
+
             notification.error({
-                message: 'Request failed',
+                message: 'Error!',
                 description:
                     'Failed to upload files to the server. Please try again.',
-            })
+                placement: 'bottomRight'
+            });
         }
     }
 

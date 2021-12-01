@@ -2,7 +2,7 @@ import {connect} from "react-redux";
 import GetSheetInfo from "./GetSheetInfo";
 import {
     getSheetList,
-    resetGsData,
+    resetGsData, toggleIsFetching,
     updateUrlInputText
 } from "../../../redux/reducers/uploadGSReducer";
 import {resetData} from "../../../redux/reducers/dynamicDataReducer";
@@ -20,6 +20,7 @@ const GetSheetInfoContainer = connect(mapStateToProps, {
     resetGsData,
     updateUrlInputText,
     resetData,
+    toggleIsFetching,
     getSheetList
 })(GetSheetInfo)
 
