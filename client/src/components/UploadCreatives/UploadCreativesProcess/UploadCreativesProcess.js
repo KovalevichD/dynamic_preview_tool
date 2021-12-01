@@ -3,30 +3,8 @@ import {Spin} from 'antd';
 import DragField from "./DragField/DragField";
 import UploadedCreativesList from "./UploadedCreativesList/UploadedCreativesList";
 import CreativesToUploadList from "./CreativesToUploadList/CreativesToUploadList";
-import axios from "axios";
-
 
 const UploadCreativesProcess = (props) => {
-    const onClick = async () => {
-        props.toggleIsFetching(true);
-        const fmData = new FormData();
-
-        for (let i = 0; i < props.filesToUpload.length; i++) {
-            fmData.append("files", props.filesToUpload[i]);
-            fmData.append("webkitRelativePath", props.filesToUpload[i].webkitRelativePath);
-        }
-
-        const res = await axios.post(
-            "/uploadCreatives/upload",
-            fmData,
-            {headers: {"content-type": "multipart/form-data"}}
-        );
-
-        props.toggleIsFetching(false);
-        props.resetFiles();
-        props.addFilesUploadedToServer(res.data.uploadedFiles);
-        props.toggleIsCreativesReady(true)
-    }
     return (
         <Spin size="large" spinning={props.isFetching} tip="Uploading creatives to the server...">
             {
@@ -53,7 +31,9 @@ const UploadCreativesProcess = (props) => {
                     uploadedFiles={props.uploadedFiles}
                     resetFiles={props.resetFiles}
                     isFetching={props.isFetching}
-                    onClick={onClick}
+                    uploadFiles={props.uploadFiles}
+                    filesToUpload={props.filesToUpload}
+                    toggleIsFetching={props.toggleIsFetching}
                 />
             }
         </Spin>

@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {getSheetsList} from "../../../api/api";
 import {Redirect} from "react-router-dom";
 import ChangeSpreadsheetLink from "./ChangeSpreadsheetLink/ChangeSpreadsheetLink";
 import ProvideSpreadsheetLink from "./ProvideSpreadsheetLink/ProvideSpreadsheetLink";
@@ -14,11 +13,8 @@ const GetSheetInfo = (props) => {
     }, [props.spreadsheetName])
 
     const onClick = async () => {
-        props.toggleIsFetching(true)
-        const spreadsheetInfo = await getSheetsList(props.urlInputText) //TODO! handle request error
+        await props.getSheetList(props.urlInputText)
 
-        props.setSheetInfo(spreadsheetInfo.data.spreadsheetInfo)
-        props.toggleIsFetching(false)
         message.success('Information about spreadsheet loaded successfully!')
         setRedirect(true)
     }

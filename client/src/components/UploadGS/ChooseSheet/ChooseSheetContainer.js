@@ -1,10 +1,6 @@
 import {connect} from "react-redux";
 import ChooseSheet from "./ChooseSheet";
-import {
-    addListOfSheetsToUpload,
-    toggleIsFetching
-} from "../../../redux/reducers/uploadGSReducer";
-import {addData} from "../../../redux/reducers/dynamicDataReducer";
+import {addListOfSheetsToUpload, getSheetsData} from "../../../redux/reducers/uploadGSReducer";
 
 const mapStateToProps = (state) => {
     return {
@@ -17,8 +13,7 @@ const mapStateToProps = (state) => {
 
 const ChooseSheetContainer = connect(mapStateToProps, {
     addListOfSheetsToUpload,
-    toggleIsFetching,
-    addData
+    getSheetsData
 })(ChooseSheet);
 
 export default ChooseSheetContainer;

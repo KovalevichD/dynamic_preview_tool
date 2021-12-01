@@ -1,26 +1,24 @@
 import axios from 'axios';
 
-const instance = axios.create({
+const instanceSpreadsheet = axios.create({
     headers: {
         'Content-Type': 'application/json'
     }
 });
 
-const instance2 = axios.create({
-    headers: {
-        'Content-Type': 'multipart/form-data'
+
+export const spreadsheetAPI = {
+    getSheetList(url) {
+        return instanceSpreadsheet.post('/uploadGS/sheetInfo', {url})
+    },
+    getSheetsData(id, listOfSheets) {
+        return instanceSpreadsheet.post('/uploadGS/sheetData', {id, listOfSheets})
     }
-});
+};
 
-export const getSheetsList = async (url) => {
-    return await instance.post('/uploadGS/sheetInfo', {url})
-}
-
-export const getSheetsData = async (id, listOfSheets) => {
-    return await instance.post('/uploadGS/sheetData', {id, listOfSheets})
-}
-
-export const uploadFile = async (file) => {
-    return await instance2.post('/uploadCreatives/upload', {file})
-}
+export const uploadCreativesAPI = {
+    uploadFiles(files) {
+        return axios.post('/uploadCreatives/upload', {files}, {headers: {'Content-Type': 'multipart/form-data'}})
+    }
+};
 

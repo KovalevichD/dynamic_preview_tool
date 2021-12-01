@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {message, Select, Typography, Button} from 'antd';
-import {getSheetsData} from "../../../api/api";
 import {Redirect} from "react-router-dom";
 
 const {Option} = Select;
@@ -19,13 +18,8 @@ const ChooseSheet = (props) => {
     }
 
     const onClick = async () => {
-        props.toggleIsFetching(true)
+        await props.getSheetsData(props.spreadsheetId, props.listOfSheetsToUpload)
 
-        const spreadsheetData = await getSheetsData(props.spreadsheetId, props.listOfSheetsToUpload)
-
-        props.toggleIsFetching(false)
-
-        props.addData(spreadsheetData.data.sheetsData)
         message.success('The data has been loaded!');
         setRedirect(true)
     }

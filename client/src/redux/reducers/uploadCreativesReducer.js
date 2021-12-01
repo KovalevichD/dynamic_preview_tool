@@ -1,3 +1,5 @@
+import {uploadCreativesAPI} from "../../api/api";
+
 const ADD_FILE_TO_LOAD = 'ADD_FILE_TO_LOAD';
 const REMOVE_FILES_TO_LOAD = 'REMOVE_FILES_TO_LOAD';
 const RESET_FILES = 'RESET_FILES';
@@ -85,5 +87,25 @@ export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFe
 export const toggleIsCreativesReady = (isReady) => ({type: TOGGLE_IS_CREATIVES_READY, isReady: isReady});
 export const addFilesUploadedToServer = (uploadedFiles) => ({type: ADD_FILES_UPLOADED_TO_SERVER, uploadedFiles: uploadedFiles});
 
+export const uploadFiles = (filesToUpload) => {
+    return async (dispatch) => {
+        dispatch(toggleIsFetching(true));
 
-export default uploadCreativesReducer
+        const formData = new FormData();
+
+        for (let i = 0; i < filesToUpload.length; i++) {
+            formData.append("files", filesToUpload[i]);
+            formData.append("webkitRelativePath", filesToUpload[i].webkitRelativePath);
+        }
+
+        const res = await uploadCreativesAPI.uploadFiles(formData);
+
+        dispatch(toggleIsFetching(false));
+        dispatch(resetFiles());
+        dispatch(addFilesUploadedToServer(res.data.uploadedFiles));
+        dispatch(toggleIsCreativesReady(true));
+        return res.status;
+    }
+}
+
+export default uploadCreativesReducer;
