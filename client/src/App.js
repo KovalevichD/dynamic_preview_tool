@@ -8,6 +8,7 @@ import UploadGS from "./components/UploadGS/UploadGS";
 import React from "react";
 import HeaderSection from "./components/HeaderSection/HeaderSection";
 import UploadCreatives from "./components/UploadCreatives/UploadCreatives";
+import GetStaticVariations from "./components/GetStaticVariations/GetStaticVariations";
 
 //https://docs.google.com/spreadsheets/d/1Qa3o9DmsRm6O_znmB8Ms0P6CeOu-YluYImanmIGAuW0/edit#gid=0
 const {Content} = Layout;
@@ -22,6 +23,7 @@ function App() {
                     <Route exact path={'/'} render={() => <StartPage/>}/>
                     <Route path={'/uploadGs'} render={() => <UploadGS/>}/>
                     <Route path={'/uploadCreatives'} render={() => <UploadCreatives/>}/>
+                    <Route path={'/getStaticVariations'} render={() => <GetStaticVariations/>}/>
                 </Content>
                 <FooterSection/>
             </Layout>

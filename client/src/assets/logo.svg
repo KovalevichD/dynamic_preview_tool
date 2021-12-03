@@ -1,17 +1,21 @@
-<svg width="120" height="25" viewBox="0 0 120 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-    <g id="Layer1">
-        <path d="M0.005,0.143L0.066,24.997C0.066,24.997 5.913,24.961 8.694,24.944C10.747,24.931 12.771,24.45 14.611,23.536C17.602,22.053 20.992,19.056 20.992,13.092C20.992,8.858 19.294,5.955 17.244,3.994C14.721,1.588 11.375,0.236 7.888,0.215C4.884,0.173 0.005,0.143 0.005,0.143ZM4.977,5.395L5.009,20.087C5.009,20.087 8.325,20.065 9.724,20.055C10.402,20.051 11.074,19.926 11.71,19.689C13.408,19.045 16.083,17.356 16.083,13.05C16.083,10.921 15.433,9.362 14.571,8.23C13.239,6.476 11.169,5.44 8.967,5.426C7.37,5.411 4.977,5.395 4.977,5.395Z" style="fill:white;"></path>
-        <path d="M29.108,0.887L29.108,24.508L46.108,24.73L46.108,19.902L34.107,19.902L34.107,14.987L45.064,14.987L45.064,10.225L34.107,10.225L34.107,5.156L45.934,5.156L45.934,0.958L29.108,0.887Z" style="fill:white;"></path>
-        <g transform="matrix(1,0,0,1,73,0)">
-            <path d="M29.108,0.887L29.108,24.508L46.108,24.73L46.108,19.902L34.107,19.902L34.107,14.987L45.064,14.987L45.064,10.225L34.107,10.225L34.107,5.156L45.934,5.156L45.934,0.958L29.108,0.887Z" style="fill:white;"></path>
-        </g>
-        <path d="M54.978,0.909L59.959,0.909L59.959,19.993L70.104,19.993L70.104,24.843L55.03,24.843L54.978,0.909Z" style="fill:white;"></path>
-        <g transform="matrix(1,0,0,-1,9.25696,25.3462)">
-            <path d="M72.437,1.014L77.994,1.014L87.456,24.414L81.066,24.414L72.437,1.014Z" style="fill:url(#_Linear1LogoV);"></path>
-        </g>
-        <path d="M72.437,1.014L77.994,1.014L87.456,24.414L81.066,24.414L72.437,1.014Z" style="fill:rgb(0,254,191);"></path>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 189.89 163.9">
     <defs>
-        <linearGradient id="_Linear1LogoV" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(14.3192,24.6,-38.3276,22.3098,74.4368,3.81408)"><stop offset="0" style="stop-color:rgb(0,51,40);stop-opacity:1"></stop><stop offset="0.54" style="stop-color:rgb(0,167,128);stop-opacity:1"></stop><stop offset="0.75" style="stop-color:rgb(0,166,127);stop-opacity:1"></stop><stop offset="1" style="stop-color:rgb(0,162,124);stop-opacity:1"></stop><stop offset="1" style="stop-color:rgb(0,254,191);stop-opacity:1"></stop></linearGradient>
+        <style>
+            .cls-3{fill:#ffffff}.cls-2{fill:none;stroke:#ffffff;stroke-miterlimit:10}.cls-3{font-size:48px;font-family:Baskerville-Bold,Baskerville;font-weight:700}.cls-4{font-family:Baskerville;font-weight:400}
+        </style>
     </defs>
+    <g>
+        <g>
+            <path d="M160.05 134.22c.12 1.2.49 24.05.56 24.34h-2.88l-149.37 2-4.9.07.07-4.91L5.4 6.41v-3h2.96l149.37.63h2.39l-.06 2.32L159.5 29H156l-.6-22.59 2.33 2.33-149.37.63 3-3 1.84 149.4-4.84-4.83 149.37 2-2.82 2.82.49-21.55Z"
+                  style="fill:#ffffff"/>
+            <path class="cls-2" d="M151.28 134.31v29.09H.5V12.62h150.78v16.65"/>
+            <path class="cls-2" d="M163.26 134.25v14.46H15.05V.5h148.21v28.62"/>
+            <text class="cls-3" transform="translate(27.16 77.46)">W
+                <tspan class="cls-4" x="45" y="0" xml:space="preserve"> ONE</tspan>
+            </text>
+            <text class="cls-3" transform="translate(22.9 113.87)">ST
+                <tspan class="cls-4" x="61.5" y="0">ONE</tspan>
+            </text>
+        </g>
+    </g>
 </svg>

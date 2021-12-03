@@ -21,3 +21,10 @@ export const uploadCreativesAPI = {
     }
 };
 
+export const createAllVariationsAPI = {
+    createVariations(snippets) {
+        console.log(snippets)
+        return axios.post('/createVariations/create', {snippets}, {headers: {'Content-Type': 'application/json'}})
+    }
+};
+

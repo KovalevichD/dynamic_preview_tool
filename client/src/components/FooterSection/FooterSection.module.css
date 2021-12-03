@@ -1,0 +1,14 @@
+.footer {
+    text-align: center;
+    color: #001529;
+}
+
+.logo {
+    width: 250px;
+}
+
+.authorLink {
+    color: #001529;
+    text-decoration: underline;
+    font-weight: bold;
+}
