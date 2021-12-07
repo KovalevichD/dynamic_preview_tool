@@ -5,6 +5,7 @@ import {
     setAmountOfFilesToLoad, toggleIsFetching, uploadFiles
 } from "../../../redux/reducers/uploadCreativesReducer";
 import UploadCreativesProcess from "./UploadCreativesProcess";
+import {clearAllVariationsDirectory} from "../../../redux/reducers/createAllVariationsReducer";
 
 const mapStateToProps = (state) => {
     return {
@@ -24,7 +25,8 @@ const UploadCreativesContainer = connect(mapStateToProps, {
     toggleIsFetching,
     resetFiles,
     uploadFiles,
-    deleteFiles
+    deleteFiles,
+    clearAllVariationsDirectory
 })(UploadCreativesProcess)
 
 export default UploadCreativesContainer;

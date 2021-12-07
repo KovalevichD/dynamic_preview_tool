@@ -3,7 +3,7 @@ import {addData} from "./dynamicDataReducer";
 
 const ADD_LIST_OF_SHEETS_TO_UPLOAD = 'ADD_LIST_OF_SHEETS_TO_UPLOAD';
 const UPDATE_URL_INPUT_TEXT = 'UPDATE_URL_INPUT_TEXT';
-const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+const TOGGLE_IS_FETCHING_UPLOAD_GS = 'TOGGLE_IS_FETCHING_UPLOAD_GS';
 const SET_TYPE = 'SET_TYPE';
 const RESET_DATA = 'RESET_DATA';
 const SET_SHEET_INFO = 'SET_SHEET_INFO';
@@ -32,7 +32,7 @@ const uploadGSReducer = (state = initialState, action) => {
                 ...state,
                 urlInputText: action.newText
             }
-        case TOGGLE_IS_FETCHING:
+        case TOGGLE_IS_FETCHING_UPLOAD_GS:
             return {
                 ...state,
                 isFetching: action.isFetching
@@ -53,7 +53,7 @@ const uploadGSReducer = (state = initialState, action) => {
 }
 export const updateUrlInputText = (textStr) => ({type: UPDATE_URL_INPUT_TEXT, newText: textStr});
 export const addListOfSheetsToUpload = (arrList) => ({type: ADD_LIST_OF_SHEETS_TO_UPLOAD, listToUpload: arrList});
-export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching: isFetching});
+export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING_UPLOAD_GS, isFetching: isFetching});
 export const setType = (typeInfoObj) => ({type: SET_TYPE, typeInfo: typeInfoObj});
 export const resetGsData = () => ({type: RESET_DATA});
 export const setSheetInfo = (infoObj) => ({type: SET_SHEET_INFO, info: infoObj});

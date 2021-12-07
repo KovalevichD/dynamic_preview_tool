@@ -13,9 +13,10 @@ const UploadedCreativesList = (props) => {
             okText: 'Continue',
             cancelText: 'Cancel',
             onOk: async () => {
-                // props.resetFiles();
                 try {
                     await props.deleteFiles();
+                    await props.clearAllVariationsDirectory();
+
                     notification.success({
                         message: 'Success!',
                         description:

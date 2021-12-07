@@ -1,7 +1,6 @@
 import React from "react";
-import {Typography, Button, Space} from 'antd';
-import {createAllVariationsAPI} from "../../../api/api";
-import fileDownload from 'js-file-download';
+import {Typography, Button, Space, Spin, notification} from 'antd';
+import DownloadArchive from "./DownloadArchive/DownloadArchive";
 
 const {Text} = Typography;
 
@@ -10,33 +9,42 @@ const GetStaticVariationsProcess = (props) => {
     const numberOfAllVariations = props.snippets.size;
     const numberOfCreatives = props.snippets.size * numberOfSizes;
 
-    const onClick = async () => {//TODO handle errors
-        const snippetsObj = Object.fromEntries(props.snippets);
-
-        const res = await createAllVariationsAPI.createVariations(snippetsObj)
-
-        console.log(res.data.message)
-    }
-
-    const download = async () => {//TODO handle errors
+    const onClick = async () => {
         try {
-            const file = await createAllVariationsAPI.downloadArchive();
+            const snippetsObj = Object.fromEntries(props.snippets);
 
-            fileDownload(file.data, 'creatives.zip')
+            await props.createAllVariations(snippetsObj);
+
+            notification.success({
+                message: 'Success!',
+                description:
+                    'All creative variations have been created.',
+                placement: 'bottomRight'
+            });
         } catch (e) {
-            console.log(e)
-        }
+            props.toggleIsFetching(false);
 
+            notification.error({
+                message: 'Error!',
+                description:
+                    'Failed to create all variations. Please try again.',
+                placement: 'bottomRight'
+            });
+        }
     }
 
     return (
-        <Space direction="vertical">
-            <Text strong>You uploaded {numberOfSizes} sizes.</Text>
-            <Text strong>The number of all static variations is {numberOfAllVariations}</Text>
-            <Text strong>The number of all creatives is {numberOfCreatives}</Text>
-            <Button type="primary" onClick={onClick}>MAKE ALL VARIATIONS</Button>
-            <Button type="primary" onClick={download}>download</Button>
-        </Space>
+        <Spin size="large" spinning={props.isFetching} tip="Creating variations...">
+            <Space direction="vertical">
+                <Text strong>You uploaded {numberOfSizes} sizes.</Text>
+                <Text strong>The number of all static variations is {numberOfAllVariations}</Text>
+                <Text strong>The number of all creatives is {numberOfCreatives}</Text>
+                <Button type="primary" onClick={onClick}>MAKE ALL VARIATIONS</Button>
+                {
+                    props.isVariationsCreated && <DownloadArchive fileToDownloadName={props.fileToDownloadName}/>
+                }
+            </Space>
+        </Spin>
     )
 }
 

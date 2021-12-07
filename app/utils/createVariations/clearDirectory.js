@@ -1,9 +1,9 @@
 const path = require('path');
 const fs = require('fs-extra');
 
-const removeFiles = async () => {
+const clearDirectory = async () => {
     try {
-        const rootFolder = path.join(__dirname, '../../uploads');
+        const rootFolder = path.join(__dirname, '../../allVariations');
 
         await fs.remove(rootFolder);
     } catch (e) {
@@ -11,4 +11,4 @@ const removeFiles = async () => {
     }
 }
 
-module.exports = removeFiles;
+module.exports = clearDirectory;

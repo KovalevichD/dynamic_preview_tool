@@ -1,31 +1,44 @@
 import React, {useState} from 'react';
-import {message, Select, Typography, Button} from 'antd';
-import {Redirect} from "react-router-dom";
+import {Select, Typography, Button, notification} from 'antd';
+import {useHistory} from "react-router-dom";
 
 const {Option} = Select;
 const {Title} = Typography;
 
 const ChooseSheet = (props) => {
     const [isDisabled, toggleIsDisabled] = useState(false);
-    const [redirect, setRedirect] = useState(false);
     const totalSheetsList = props.totalListOfSheets;
     const sheetsListToUpload = props.listOfSheetsToUpload;
-    const optionsList = totalSheetsList.map(listItem => <Option key={listItem} value={listItem}>{listItem}</Option>)
+    const optionsList = totalSheetsList.map(listItem => <Option key={listItem} value={listItem}>{listItem}</Option>);
+    const history = useHistory();
 
     const onChange = (value) => {
-        value.length <= 0 ? toggleIsDisabled(true) : toggleIsDisabled(false)
-        props.addListOfSheetsToUpload(value)
+        value.length <= 0 ? toggleIsDisabled(true) : toggleIsDisabled(false);
+        props.addListOfSheetsToUpload(value);
     }
 
     const onClick = async () => {
-        await props.getSheetsData(props.spreadsheetId, props.listOfSheetsToUpload)
+        try {
+            await props.getSheetsData(props.spreadsheetId, props.listOfSheetsToUpload);
 
-        message.success('The data has been loaded!');
-        setRedirect(true)
-    }
+            notification.success({
+                message: 'Success!',
+                description:
+                    'The spreadsheet data is loaded successfully.',
+                placement: 'bottomRight'
+            });
 
-    if (redirect) {
-        return <Redirect to='/uploadGs/step_2'/>;
+            history.push('/uploadGs/step_2');
+        } catch (e) {
+            props.toggleIsFetching(false);
+
+            notification.error({
+                message: 'Error!',
+                description:
+                    'Failed to load data from the spreadsheet. Please try again.',
+                placement: 'bottomRight'
+            });
+        }
     }
 
     return (

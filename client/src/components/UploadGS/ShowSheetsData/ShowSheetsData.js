@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react';
-import {BackTop, Table, Button, Typography, message, Input} from 'antd';
+import {BackTop, Table, Button, Typography, Input, notification} from 'antd';
 import SelectType from "./SelectType/SelectType";
 import {Link} from "react-router-dom";
 import TableHeader from "./TableHeader/TableHeader";
@@ -82,11 +82,17 @@ const ShowSheetsData = (props) => {
     )
 
     const onClick = () => {
-        props.setDataReadyFlag(true)
-        props.setDynamicId(dynamicId)
-        const codeSnippetsArr = createSnippets(props.data)
-        props.addCodeSnippets(codeSnippetsArr)
-        message.success('Dynamic snippets have been created!');
+        props.setDataReadyFlag(true);
+        props.setDynamicId(dynamicId);
+        const codeSnippetsArr = createSnippets(props.data);
+        props.addCodeSnippets(codeSnippetsArr);
+
+        notification.success({
+            message: 'Success!',
+            description:
+                'Dynamic snippets have been created.',
+            placement: 'bottomRight'
+        });
     }
 
     return (

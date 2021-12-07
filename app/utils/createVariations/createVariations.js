@@ -12,7 +12,7 @@ const createVariations = async (variationsObj) => {
 
         await Promise.all(fileProcessingPromises);
 
-        await zipDirectory(destRootDir);
+        return await zipDirectory(destRootDir);
     } catch (e) {
         console.log(e);
     }

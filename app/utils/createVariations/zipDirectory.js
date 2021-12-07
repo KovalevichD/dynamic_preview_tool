@@ -4,7 +4,8 @@ const path = require("path");
 
 const zipDirectory = (destRootDir) => {
     const archive = archiver('zip', {zlib: {level: 9}});
-    const archivePath = path.join(destRootDir, '../creatives.zip');
+    const archiveName = 'creatives.zip';
+    const archivePath = path.join(destRootDir, `../${archiveName}`);
     const stream = fs.createWriteStream(archivePath);
 
     return new Promise((resolve, reject) => {
@@ -13,7 +14,7 @@ const zipDirectory = (destRootDir) => {
             .on('error', err => reject(err))
             .pipe(stream);
 
-        stream.on('close', () => resolve());
+        stream.on('close', () => resolve(archiveName));
         archive.finalize()
     });
 }

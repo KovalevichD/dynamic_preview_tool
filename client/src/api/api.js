@@ -30,6 +30,9 @@ export const createAllVariationsAPI = {
     },
     downloadArchive() {
         return axios.get('/createVariations/download', {responseType: 'blob'})
+    },
+    clearDirectory() {
+        return axios.delete('/createVariations/delete')
     }
 };
 

@@ -4,7 +4,7 @@ const ADD_DATA = 'ADD_DATA';
 const SET_TYPE = 'SET_TYPE';
 const SET_QUANTITY = 'SET_QUANTITY';
 const UPDATE_ELEMENT_NAME = 'UPDATE_ELEMENT_NAME';
-const RESET_DATA = 'RESET_DATA';
+const RESET_DATA_DYN_DATA = 'RESET_DATA_DYN_DATA';
 const SET_DYNAMIC_ID = 'SET_DYNAMIC_ID';
 
 const initialState = {
@@ -22,11 +22,8 @@ const dynamicDataReducer = (state = initialState, action) => {
                 ...state,
                 dynamicId: action.id
             }
-        case RESET_DATA:
-            return {
-                ...initialState,
-                isDataReady: false
-            }
+        case RESET_DATA_DYN_DATA:
+            return initialState;
         case ADD_DATA:
             const processedData = [];
 
@@ -91,7 +88,7 @@ const dynamicDataReducer = (state = initialState, action) => {
     }
 }
 
-export const resetData = () => ({type: RESET_DATA})
+export const resetData = () => ({type: RESET_DATA_DYN_DATA})
 export const addData = (data) => ({type: ADD_DATA, data: data})
 export const setType = (typeInfoObj) => ({type: SET_TYPE, typeInfo: typeInfoObj})
 export const setQuantity = (index, number) => ({type: SET_QUANTITY, index: index, quantity: number})

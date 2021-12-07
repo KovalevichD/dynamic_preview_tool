@@ -20,7 +20,7 @@ const UploadCreativesProcess = (props) => {
                 && <UploadedCreativesList
                     filesInFolders={props.uploadedFiles}
                     uploadedFiles={props.uploadedFiles}
-                    // resetFiles={props.resetFiles}
+                    clearAllVariationsDirectory={props.clearAllVariationsDirectory}
                     deleteFiles={props.deleteFiles}
                     toggleIsFetching={props.toggleIsFetching}
                 />
