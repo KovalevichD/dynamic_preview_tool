@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, message, Modal} from 'antd';
+import {Button, Modal, notification} from 'antd';
 import ListOfCreatives from "../ListOfCreatives/ListOfCreatives";
 import {ExclamationCircleOutlined} from "@ant-design/icons";
 
@@ -12,9 +12,26 @@ const UploadedCreativesList = (props) => {
             content: 'You will lose the uploaded data',
             okText: 'Continue',
             cancelText: 'Cancel',
-            onOk: () => {
-                props.resetFiles();
-                message.success('The data has been reset!');
+            onOk: async () => {
+                // props.resetFiles();
+                try {
+                    await props.deleteFiles();
+                    notification.success({
+                        message: 'Success!',
+                        description:
+                            'The data has been reset.',
+                        placement: 'bottomRight'
+                    });
+                } catch (e) {
+                    props.toggleIsFetching(false);
+
+                    notification.error({
+                        message: 'Error!',
+                        description:
+                            'Couldn\'t delete the data. Please try again.',
+                        placement: 'bottomRight'
+                    });
+                }
             }
         });
     }

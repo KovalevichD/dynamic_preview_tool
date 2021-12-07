@@ -35,7 +35,6 @@ router.get('/download',
         try {
             const filePath = path.join(__dirname, '../allVariations/creatives.zip');
             res.download(filePath);
-            // res.status(200).json({message: 'downloaded'})
 
         } catch (e) {
             res.status(500).json({message: 'Something wrong with downloading data.'})

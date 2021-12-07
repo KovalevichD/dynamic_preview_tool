@@ -18,6 +18,9 @@ export const spreadsheetAPI = {
 export const uploadCreativesAPI = {
     uploadFiles(files) {
         return axios.post('/uploadCreatives/upload', files, {headers: {'Content-Type': 'multipart/form-data'}})
+    },
+    deleteFiles() {
+        return axios.delete('/uploadCreatives/delete')
     }
 };
 

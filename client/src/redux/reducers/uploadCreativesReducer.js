@@ -85,7 +85,10 @@ export const resetFiles = () => ({type: RESET_FILES});
 export const setAmountOfFilesToLoad = (amount) => ({type: SET_AMOUNT_OF_FILES_TO_LOAD, amountOfFiles: amount});
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching: isFetching});
 export const toggleIsCreativesReady = (isReady) => ({type: TOGGLE_IS_CREATIVES_READY, isReady: isReady});
-export const addFilesUploadedToServer = (uploadedFiles) => ({type: ADD_FILES_UPLOADED_TO_SERVER, uploadedFiles: uploadedFiles});
+export const addFilesUploadedToServer = (uploadedFiles) => ({
+    type: ADD_FILES_UPLOADED_TO_SERVER,
+    uploadedFiles: uploadedFiles
+});
 
 export const uploadFiles = (filesToUpload) => {
     return async (dispatch) => {
@@ -104,7 +107,18 @@ export const uploadFiles = (filesToUpload) => {
         dispatch(resetFiles());
         dispatch(addFilesUploadedToServer(res.data.uploadedFiles));
         dispatch(toggleIsCreativesReady(true));
-        return res.status;
+    }
+}
+
+export const deleteFiles = () => {
+    return async (dispatch) => {
+        dispatch(toggleIsFetching(true));
+
+        await uploadCreativesAPI.deleteFiles();
+
+        dispatch(resetFiles());
+        dispatch(toggleIsFetching(false));
+        dispatch(toggleIsCreativesReady(false));
     }
 }
 
