@@ -26,7 +26,8 @@ const NavbarSection = (props) => {
             {/*<SubMenu key="sub2" disabled={ !props.isDataReady || !props.isCreativesReady} icon={<SaveOutlined/>} title="GET ALL STATIC VARIATIONS">*/}
             {/*    <Menu.Item key="6">Get all versions</Menu.Item>*/}
             {/*</SubMenu>*/}
-            <Menu.Item key="6" disabled={ !props.isDataReady || !props.isCreativesReady} icon={<SaveOutlined/>}>
+            {/*<Menu.Item key="6" disabled={ !props.isDataReady || !props.isCreativesReady} icon={<SaveOutlined/>}>*/}
+            <Menu.Item key="6" icon={<SaveOutlined/>}>
                 <NavLink to="/getStaticVariations/">GET ALL STATIC VARIATIONS</NavLink>
             </Menu.Item>
             <SubMenu key="sub3" disabled={!props.isDataReady || !props.isCreativesReady} icon={<FundViewOutlined/>} title="PREVIEW">

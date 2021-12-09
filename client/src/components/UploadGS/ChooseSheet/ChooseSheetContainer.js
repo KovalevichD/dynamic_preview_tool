@@ -22,10 +22,4 @@ export default compose(
     connect(mapStateToProps, mapDispatchToProps),
     WithFetchingHoc
 )(ChooseSheet)
-// const ChooseSheetContainer = connect(mapStateToProps, {
-//     addListOfSheetsToUpload,
-//     getSheetsData
-// })(ChooseSheet);
-//
-// export default ChooseSheetContainer;
 

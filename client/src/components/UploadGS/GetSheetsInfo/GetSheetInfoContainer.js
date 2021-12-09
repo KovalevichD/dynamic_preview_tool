@@ -30,6 +30,3 @@ export default compose(
     connect(mapStateToProps, mapDispatchToProps),
     WithFetchingHoc
 )(GetSheetInfo)
-// const GetSheetInfoContainer = connect(mapStateToProps, mapDispatchToProps)(GetSheetInfo)
-//
-// export default GetSheetInfoContainer;

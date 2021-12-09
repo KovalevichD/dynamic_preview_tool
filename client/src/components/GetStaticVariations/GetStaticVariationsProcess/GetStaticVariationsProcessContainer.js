@@ -3,6 +3,7 @@ import GetStaticVariationsProcess from "./GetStaticVariationsProcess";
 import {createAllVariations, toggleIsFetching} from "../../../redux/reducers/createAllVariationsReducer";
 import {compose} from "redux";
 import WithFetchingHoc from "../../../hoc/WithFetchingHoc";
+import WithNoDataRedirect from "../../../hoc/WithNoDataRedirect";
 
 const mapStateToProps = (state) => {
     return {
@@ -10,7 +11,8 @@ const mapStateToProps = (state) => {
         creatives: state.uploadCreatives.uploadedFiles,
         isFetching: state.createAllVariations.isFetching,
         isVariationsCreated: state.createAllVariations.isVariationsCreated,
-        fileToDownloadName: state.createAllVariations.fileToDownloadName
+        fileToDownloadName: state.createAllVariations.fileToDownloadName,
+        isNoData: state.dynamicData.isDataReady && state.uploadCreatives.isCreativesReady
     }
 }
 
@@ -21,5 +23,6 @@ const mapDispatchToProps = {
 
 export default compose(
     connect(mapStateToProps, mapDispatchToProps),
-    WithFetchingHoc
+    WithFetchingHoc,
+    WithNoDataRedirect
 )(GetStaticVariationsProcess)
