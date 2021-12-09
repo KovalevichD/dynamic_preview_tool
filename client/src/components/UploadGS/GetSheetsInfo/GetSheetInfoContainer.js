@@ -6,6 +6,8 @@ import {
     updateUrlInputText
 } from "../../../redux/reducers/uploadGSReducer";
 import {resetData} from "../../../redux/reducers/dynamicDataReducer";
+import {compose} from "redux";
+import WithFetchingHoc from "../../../hoc/WithFetchingHoc";
 
 const mapStateToProps = (state) => {
     return {
@@ -16,12 +18,18 @@ const mapStateToProps = (state) => {
     }
 }
 
-const GetSheetInfoContainer = connect(mapStateToProps, {
+const mapDispatchToProps = {
     resetGsData,
     updateUrlInputText,
     resetData,
     toggleIsFetching,
     getSheetList
-})(GetSheetInfo)
+}
 
-export default GetSheetInfoContainer;
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    WithFetchingHoc
+)(GetSheetInfo)
+// const GetSheetInfoContainer = connect(mapStateToProps, mapDispatchToProps)(GetSheetInfo)
+//
+// export default GetSheetInfoContainer;

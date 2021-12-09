@@ -43,7 +43,6 @@ const GetSheetInfo = (props) => {
 
             <Button onClick={onClick}
                     disabled={!props.urlInputText}
-                    loading={props.isFetching}
                     type="primary"
                     style={{marginLeft: '20px'}}>LOAD SPREADSHEET</Button>
         </>

@@ -1,6 +1,8 @@
 import {connect} from "react-redux";
 import GetStaticVariationsProcess from "./GetStaticVariationsProcess";
 import {createAllVariations, toggleIsFetching} from "../../../redux/reducers/createAllVariationsReducer";
+import {compose} from "redux";
+import WithFetchingHoc from "../../../hoc/WithFetchingHoc";
 
 const mapStateToProps = (state) => {
     return {
@@ -12,9 +14,12 @@ const mapStateToProps = (state) => {
     }
 }
 
-const GetStaticVariationsProcessContainer = connect(mapStateToProps, {
+const mapDispatchToProps = {
     createAllVariations,
     toggleIsFetching
-})(GetStaticVariationsProcess);
+}
 
-export default GetStaticVariationsProcessContainer;
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    WithFetchingHoc
+)(GetStaticVariationsProcess)

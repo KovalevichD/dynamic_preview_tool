@@ -1,12 +1,11 @@
 import React from 'react';
-import {Spin} from 'antd';
 import DragField from "./DragField/DragField";
 import UploadedCreativesList from "./UploadedCreativesList/UploadedCreativesList";
 import CreativesToUploadList from "./CreativesToUploadList/CreativesToUploadList";
 
 const UploadCreativesProcess = (props) => {
     return (
-        <Spin size="large" spinning={props.isFetching} tip="Uploading creatives to the server...">
+        <>
             {
                 props.filesToUpload.length !== props.amountOfFilesToLoad
                 && !props.isCreativesReady
@@ -38,7 +37,7 @@ const UploadCreativesProcess = (props) => {
                     toggleIsFetching={props.toggleIsFetching}
                 />
             }
-        </Spin>
+        </>
     );
 }
 

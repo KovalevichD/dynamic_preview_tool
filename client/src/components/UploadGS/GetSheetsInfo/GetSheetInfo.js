@@ -20,8 +20,7 @@ const GetSheetInfo = (props) => {
                     : <ProvideSpreadsheetLink urlInputText={props.urlInputText}
                                               toggleIsFetching={props.toggleIsFetching}
                                               getSheetList={props.getSheetList}
-                                              updateUrlInputText={props.updateUrlInputText}
-                                              isFetching={props.isFetching}/>
+                                              updateUrlInputText={props.updateUrlInputText}/>
             }
         </>
     );

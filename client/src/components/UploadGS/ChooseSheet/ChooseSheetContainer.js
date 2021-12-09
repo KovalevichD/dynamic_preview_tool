@@ -1,6 +1,8 @@
 import {connect} from "react-redux";
 import ChooseSheet from "./ChooseSheet";
 import {addListOfSheetsToUpload, getSheetsData} from "../../../redux/reducers/uploadGSReducer";
+import {compose} from "redux";
+import WithFetchingHoc from "../../../hoc/WithFetchingHoc";
 
 const mapStateToProps = (state) => {
     return {
@@ -11,10 +13,19 @@ const mapStateToProps = (state) => {
     }
 }
 
-const ChooseSheetContainer = connect(mapStateToProps, {
+const mapDispatchToProps = {
     addListOfSheetsToUpload,
     getSheetsData
-})(ChooseSheet);
+}
 
-export default ChooseSheetContainer;
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    WithFetchingHoc
+)(ChooseSheet)
+// const ChooseSheetContainer = connect(mapStateToProps, {
+//     addListOfSheetsToUpload,
+//     getSheetsData
+// })(ChooseSheet);
+//
+// export default ChooseSheetContainer;
 

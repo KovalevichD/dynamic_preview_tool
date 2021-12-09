@@ -1,5 +1,5 @@
 import React from "react";
-import {Typography, Button, Space, Spin, notification} from 'antd';
+import {Typography, Button, Space, notification} from 'antd';
 import DownloadArchive from "./DownloadArchive/DownloadArchive";
 
 const {Text} = Typography;
@@ -34,7 +34,7 @@ const GetStaticVariationsProcess = (props) => {
     }
 
     return (
-        <Spin size="large" spinning={props.isFetching} tip="Creating variations...">
+        // <Spin size="large" spinning={props.isFetching} tip="Creating variations...">
             <Space direction="vertical">
                 <Text strong>You uploaded {numberOfSizes} sizes.</Text>
                 <Text strong>The number of all static variations is {numberOfAllVariations}</Text>
@@ -44,7 +44,7 @@ const GetStaticVariationsProcess = (props) => {
                     props.isVariationsCreated && <DownloadArchive fileToDownloadName={props.fileToDownloadName}/>
                 }
             </Space>
-        </Spin>
+        // </Spin>
     )
 }
 

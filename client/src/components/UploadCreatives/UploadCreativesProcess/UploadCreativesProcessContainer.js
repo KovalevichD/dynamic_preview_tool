@@ -6,6 +6,8 @@ import {
 } from "../../../redux/reducers/uploadCreativesReducer";
 import UploadCreativesProcess from "./UploadCreativesProcess";
 import {clearAllVariationsDirectory} from "../../../redux/reducers/createAllVariationsReducer";
+import WithFetchingHoc from "../../../hoc/WithFetchingHoc";
+import {compose} from "redux";
 
 const mapStateToProps = (state) => {
     return {
@@ -18,7 +20,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-const UploadCreativesContainer = connect(mapStateToProps, {
+const mapDispatchToProps = {
     addFileToLoad,
     removeFilesToLoad,
     setAmountOfFilesToLoad,
@@ -27,6 +29,9 @@ const UploadCreativesContainer = connect(mapStateToProps, {
     uploadFiles,
     deleteFiles,
     clearAllVariationsDirectory
-})(UploadCreativesProcess)
+}
 
-export default UploadCreativesContainer;
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    WithFetchingHoc
+)(UploadCreativesProcess)
