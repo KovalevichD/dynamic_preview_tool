@@ -4,14 +4,19 @@ import {createAllVariations, toggleIsFetching} from "../../../redux/reducers/cre
 import {compose} from "redux";
 import WithFetchingHoc from "../../../hoc/WithFetchingHoc";
 import WithNoDataRedirect from "../../../hoc/WithNoDataRedirect";
+import {
+    getFileToDownloadName,
+    getIsFetchingAllVariations,
+    getIsVariationsCreated
+} from "../../../redux/selectors/allVariationsSelectors";
 
 const mapStateToProps = (state) => {
     return {
         snippets: state.dynamicData.snippets,
         creatives: state.uploadCreatives.uploadedFiles,
-        isFetching: state.createAllVariations.isFetching,
-        isVariationsCreated: state.createAllVariations.isVariationsCreated,
-        fileToDownloadName: state.createAllVariations.fileToDownloadName,
+        isFetching: getIsFetchingAllVariations(state),
+        isVariationsCreated: getIsVariationsCreated(state),
+        fileToDownloadName: getFileToDownloadName(state),
         isNoData: state.dynamicData.isDataReady && state.uploadCreatives.isCreativesReady
     }
 }
