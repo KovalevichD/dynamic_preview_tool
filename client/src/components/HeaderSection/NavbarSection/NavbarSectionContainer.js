@@ -1,10 +1,12 @@
 import {connect} from "react-redux";
 import NavbarSection from "./NavbarSection";
+import {getIsDataReady} from "../../../redux/selectors/dynamicDataSelectors";
+import {getIsCreativesReady} from "../../../redux/selectors/uploadCreativesSelectors";
 
 const mapStateToProps = (state) => {
     return {
-        isDataReady: state.dynamicData.isDataReady,
-        isCreativesReady: state.uploadCreatives.isCreativesReady
+        isDataReady: getIsDataReady(state),
+        isCreativesReady: getIsCreativesReady(state)
     }
 }
 

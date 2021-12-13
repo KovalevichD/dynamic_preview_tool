@@ -1,11 +1,13 @@
 import {connect} from "react-redux";
 import Progress from "./Progress";
 import {withRouter} from "react-router-dom";
+import {getSheetDataLength} from "../../../redux/selectors/dynamicDataSelectors";
+import {getTotalListOfSheetsLength} from "../../../redux/selectors/uploadGSSelectors";
 
 const mapStateToProps = (state) => {
     return {
-        totalListOfSheetsLength: state.uploadGS.totalListOfSheets.length,
-        sheetDataLength: state.dynamicData.data.length
+        totalListOfSheetsLength: getTotalListOfSheetsLength(state),
+        sheetDataLength: getSheetDataLength(state)
     }
 }
 

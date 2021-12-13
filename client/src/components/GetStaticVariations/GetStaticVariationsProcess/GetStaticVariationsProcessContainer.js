@@ -9,15 +9,17 @@ import {
     getIsFetchingAllVariations,
     getIsVariationsCreated
 } from "../../../redux/selectors/allVariationsSelectors";
+import {getIsDataReady, getSnippets} from "../../../redux/selectors/dynamicDataSelectors";
+import {getIsCreativesReady, getUploadedFiles} from "../../../redux/selectors/uploadCreativesSelectors";
 
 const mapStateToProps = (state) => {
     return {
-        snippets: state.dynamicData.snippets,
-        creatives: state.uploadCreatives.uploadedFiles,
+        snippets: getSnippets(state),
+        creatives: getUploadedFiles(state),
         isFetching: getIsFetchingAllVariations(state),
         isVariationsCreated: getIsVariationsCreated(state),
         fileToDownloadName: getFileToDownloadName(state),
-        isNoData: state.dynamicData.isDataReady && state.uploadCreatives.isCreativesReady
+        isNoData: getIsDataReady(state) && getIsCreativesReady(state)
     }
 }
 

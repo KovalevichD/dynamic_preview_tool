@@ -7,11 +7,12 @@ import {
     setQuantity,
     updateElementName, setDynamicId
 } from "../../../redux/reducers/dynamicDataReducer";
+import {getData, getListOfTypes} from "../../../redux/selectors/dynamicDataSelectors";
 
 const mapStateToProps = (state) => {
     return {
-        data: state.dynamicData.data,
-        listOfTypes: state.dynamicData.listOfTypes
+        data: getData(state),
+        listOfTypes: getListOfTypes(state)
     }
 }
 

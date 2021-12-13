@@ -3,13 +3,19 @@ import ChooseSheet from "./ChooseSheet";
 import {addListOfSheetsToUpload, getSheetsData} from "../../../redux/reducers/uploadGSReducer";
 import {compose} from "redux";
 import WithFetchingHoc from "../../../hoc/WithFetchingHoc";
+import {
+    getIsUploadGSFetching,
+    getListOfSheetsToUpload,
+    getSpreadsheetId,
+    getTotalListOfSheets
+} from "../../../redux/selectors/uploadGSSelectors";
 
 const mapStateToProps = (state) => {
     return {
-        totalListOfSheets: state.uploadGS.totalListOfSheets,
-        listOfSheetsToUpload: state.uploadGS.listOfSheetsToUpload,
-        spreadsheetId: state.uploadGS.spreadsheetId,
-        isFetching: state.uploadGS.isFetching
+        totalListOfSheets: getTotalListOfSheets(state),
+        listOfSheetsToUpload: getListOfSheetsToUpload(state),
+        spreadsheetId: getSpreadsheetId(state),
+        isFetching: getIsUploadGSFetching(state)
     }
 }
 

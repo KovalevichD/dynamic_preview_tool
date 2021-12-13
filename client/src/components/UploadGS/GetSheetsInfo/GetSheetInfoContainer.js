@@ -8,13 +8,19 @@ import {
 import {resetData} from "../../../redux/reducers/dynamicDataReducer";
 import {compose} from "redux";
 import WithFetchingHoc from "../../../hoc/WithFetchingHoc";
+import {
+    getIsUploadGSFetching,
+    getSpreadsheetName,
+    getSpreadsheetUrl,
+    getUrlInputText
+} from "../../../redux/selectors/uploadGSSelectors";
 
 const mapStateToProps = (state) => {
     return {
-        urlInputText: state.uploadGS.urlInputText,
-        isFetching: state.uploadGS.isFetching,
-        spreadsheetName: state.uploadGS.spreadsheetName,
-        spreadsheetUrl: state.uploadGS.spreadsheetUrl
+        urlInputText: getUrlInputText(state),
+        isFetching: getIsUploadGSFetching(state),
+        spreadsheetName: getSpreadsheetName(state),
+        spreadsheetUrl: getSpreadsheetUrl(state)
     }
 }
 
