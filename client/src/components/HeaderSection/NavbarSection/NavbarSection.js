@@ -18,7 +18,8 @@ const NavbarSection = (props) => {
             <Menu.Item key="2" icon={<UploadOutlined/>}>
                 <NavLink to="/uploadCreatives/">LOAD YOUR CREATIVES</NavLink>
             </Menu.Item>
-            <SubMenu key="sub1" disabled={!props.isCreativesReady} icon={<BarChartOutlined/>} title="CREATE DC">
+            {/*<SubMenu key="sub1" disabled={!props.isCreativesReady} icon={<BarChartOutlined/>} title="CREATE DC">*/}
+            <SubMenu key="sub1" icon={<BarChartOutlined/>} title="CREATE DC">
                 <Menu.Item key="3"><NavLink to="/uploadGs/step_0">Upload Google Spreadsheets</NavLink></Menu.Item>
                 <Menu.Item key="4">Upload CSV</Menu.Item>
                 <Menu.Item key="5">Upload .json File</Menu.Item>
