@@ -1,8 +1,9 @@
 import React from 'react';
-import {Upload, message} from 'antd';
+import {Upload, message, Typography} from 'antd';
 import {InboxOutlined} from '@ant-design/icons';
 
 const {Dragger} = Upload;
+const {Title} = Typography;
 
 const DragField = (props) => {
 
@@ -17,24 +18,29 @@ const DragField = (props) => {
     }
 
     return (
-        <Dragger name='file'
-                 style={{margin: '40px auto', maxWidth: '90%'}}
-                 accept='image/*,.css,.js,.html,.woff2,.woff,.mp4,.ogv,.webp,.zip'
-                 showUploadList={false}
-                 customRequest={customRequest}
-                 onChange={onChange}
-                 multiple={true}
-                 directory={true}
-        >
-            <p className="ant-upload-drag-icon">
-                <InboxOutlined/>
-            </p>
-            <p className="ant-upload-text">Click or drag file to this area to upload</p>
-            <p className="ant-upload-hint">
-                Support for a single or bulk upload. Strictly prohibit from uploading company data or other
-                band files
-            </p>
-        </Dragger>
+        <>
+            <Title level={4} style={{textAlign: 'left', margin: '50px 0 0 40px'}}>
+                Get started with the app by uploading your creatives
+            </Title>
+            <Dragger name='file'
+                     style={{margin: '40px auto', maxWidth: '90%'}}
+                     accept='image/*,.css,.js,.html,.woff2,.woff,.mp4,.ogv,.webp,.zip'
+                     showUploadList={false}
+                     customRequest={customRequest}
+                     onChange={onChange}
+                     multiple={true}
+                     directory={true}
+            >
+                <p className="ant-upload-drag-icon">
+                    <InboxOutlined/>
+                </p>
+                <p className="ant-upload-text">Click or drag file to this area to upload</p>
+                <p className="ant-upload-hint">
+                    Support for a single or bulk upload. Strictly prohibit from uploading company data or other
+                    band files
+                </p>
+            </Dragger>
+        </>
     );
 }
 

@@ -1,12 +1,12 @@
 import {spreadsheetAPI} from "../../api/api";
 import {addData} from "./dynamicDataReducer";
 
-const ADD_LIST_OF_SHEETS_TO_UPLOAD = 'ADD_LIST_OF_SHEETS_TO_UPLOAD';
-const UPDATE_URL_INPUT_TEXT = 'UPDATE_URL_INPUT_TEXT';
-const TOGGLE_IS_FETCHING_UPLOAD_GS = 'TOGGLE_IS_FETCHING_UPLOAD_GS';
-const SET_TYPE = 'SET_TYPE';
-const RESET_DATA = 'RESET_DATA';
-const SET_SHEET_INFO = 'SET_SHEET_INFO';
+const ADD_LIST_OF_SHEETS_TO_UPLOAD = 'automation-toolkit/uploadGS/ADD_LIST_OF_SHEETS_TO_UPLOAD';
+const UPDATE_URL_INPUT_TEXT = 'automation-toolkit/uploadGS/UPDATE_URL_INPUT_TEXT';
+const TOGGLE_IS_FETCHING_UPLOAD_GS = 'automation-toolkit/uploadGS/TOGGLE_IS_FETCHING_UPLOAD_GS';
+const SET_TYPE = 'automation-toolkit/uploadGS/SET_TYPE';
+const RESET_DATA = 'automation-toolkit/uploadGS/RESET_DATA';
+const SET_SHEET_INFO = 'automation-toolkit/uploadGS/SET_SHEET_INFO';
 
 const initialState = {
     urlInputText: '',

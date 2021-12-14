@@ -1,9 +1,9 @@
 import {createAllVariationsAPI} from "../../api/api";
 
-const TOGGLE_IS_FETCHING_ALL_VARIATIONS = 'TOGGLE_IS_FETCHING_ALL_VARIATIONS';
-const TOGGLE_IS_VARIATIONS_CREATED = 'TOGGLE_IS_VARIATIONS_CREATED';
-const SET_FILE_TO_DOWNLOAD_NAME = 'SET_FILE_TO_DOWNLOAD_NAME';
-const RESET_DATA_ALL_VARIATIONS = 'RESET_DATA_ALL_VARIATIONS';
+const TOGGLE_IS_FETCHING_ALL_VARIATIONS = 'automation-toolkit/createAllVariations/TOGGLE_IS_FETCHING_ALL_VARIATIONS';
+const TOGGLE_IS_VARIATIONS_CREATED = 'automation-toolkit/createAllVariations/TOGGLE_IS_VARIATIONS_CREATED';
+const SET_FILE_TO_DOWNLOAD_NAME = 'automation-toolkit/createAllVariations/SET_FILE_TO_DOWNLOAD_NAME';
+const RESET_DATA_ALL_VARIATIONS = 'automation-toolkit/createAllVariations/RESET_DATA_ALL_VARIATIONS';
 
 const initialState = {
     isFetching: false,

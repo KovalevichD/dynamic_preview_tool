@@ -1,11 +1,11 @@
-const ADD_CODE_SNIPPETS = 'ADD_CODE_SNIPPETS';
-const SET_DATA_READY_FLAG = 'SET_DATA_READY_FLAG';
-const ADD_DATA = 'ADD_DATA';
-const SET_TYPE = 'SET_TYPE';
-const SET_QUANTITY = 'SET_QUANTITY';
-const UPDATE_ELEMENT_NAME = 'UPDATE_ELEMENT_NAME';
-const RESET_DATA_DYN_DATA = 'RESET_DATA_DYN_DATA';
-const SET_DYNAMIC_ID = 'SET_DYNAMIC_ID';
+const ADD_CODE_SNIPPETS = 'automation-toolkit/dynamicData/ADD_CODE_SNIPPETS';
+const SET_DATA_READY_FLAG = 'automation-toolkit/dynamicData/SET_DATA_READY_FLAG';
+const ADD_DATA = 'automation-toolkit/dynamicData/ADD_DATA';
+const SET_TYPE = 'automation-toolkit/dynamicData/SET_TYPE';
+const SET_QUANTITY = 'automation-toolkit/dynamicData/SET_QUANTITY';
+const UPDATE_ELEMENT_NAME = 'automation-toolkit/dynamicData/UPDATE_ELEMENT_NAME';
+const RESET_DATA_DYN_DATA = 'automation-toolkit/dynamicData/RESET_DATA_DYN_DATA';
+const SET_DYNAMIC_ID = 'automation-toolkit/dynamicData/SET_DYNAMIC_ID';
 
 const initialState = {
     isDataReady: false,

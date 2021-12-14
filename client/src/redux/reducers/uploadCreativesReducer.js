@@ -1,12 +1,12 @@
 import {uploadCreativesAPI} from "../../api/api";
 
-const ADD_FILE_TO_LOAD = 'ADD_FILE_TO_LOAD';
-const REMOVE_FILES_TO_LOAD = 'REMOVE_FILES_TO_LOAD';
-const RESET_FILES = 'RESET_FILES';
-const SET_AMOUNT_OF_FILES_TO_LOAD = 'SET_AMOUNT_OF_FILES_TO_LOAD';
-const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
-const ADD_FILES_UPLOADED_TO_SERVER = 'ADD_FILES_UPLOADED_TO_SERVER';
-const TOGGLE_IS_CREATIVES_READY = 'TOGGLE_IS_CREATIVES_READY';
+const ADD_FILE_TO_LOAD = 'automation-toolkit/uploadCreatives/ADD_FILE_TO_LOAD';
+const REMOVE_FILES_TO_LOAD = 'automation-toolkit/uploadCreatives/REMOVE_FILES_TO_LOAD';
+const RESET_FILES = 'automation-toolkit/uploadCreatives/RESET_FILES';
+const SET_AMOUNT_OF_FILES_TO_LOAD = 'automation-toolkit/uploadCreatives/SET_AMOUNT_OF_FILES_TO_LOAD';
+const TOGGLE_IS_FETCHING = 'automation-toolkit/uploadCreatives/TOGGLE_IS_FETCHING';
+const ADD_FILES_UPLOADED_TO_SERVER = 'automation-toolkit/uploadCreatives/ADD_FILES_UPLOADED_TO_SERVER';
+const TOGGLE_IS_CREATIVES_READY = 'automation-toolkit/uploadCreatives/TOGGLE_IS_CREATIVES_READY';
 
 const initialState = {
     filesInFolders: {},
