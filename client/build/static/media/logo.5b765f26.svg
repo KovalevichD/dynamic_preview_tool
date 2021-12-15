@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 189.89 163.9">
+    <defs>
+        <style>
+            .cls-3{fill:#ffffff}.cls-2{fill:none;stroke:#ffffff;stroke-miterlimit:10}.cls-3{font-size:48px;font-family:Baskerville-Bold,Baskerville;font-weight:700}.cls-4{font-family:Baskerville;font-weight:400}
+        </style>
+    </defs>
+    <g>
+        <g>
+            <path d="M160.05 134.22c.12 1.2.49 24.05.56 24.34h-2.88l-149.37 2-4.9.07.07-4.91L5.4 6.41v-3h2.96l149.37.63h2.39l-.06 2.32L159.5 29H156l-.6-22.59 2.33 2.33-149.37.63 3-3 1.84 149.4-4.84-4.83 149.37 2-2.82 2.82.49-21.55Z"
+                  style="fill:#ffffff"/>
+            <path class="cls-2" d="M151.28 134.31v29.09H.5V12.62h150.78v16.65"/>
+            <path class="cls-2" d="M163.26 134.25v14.46H15.05V.5h148.21v28.62"/>
+            <text class="cls-3" transform="translate(27.16 77.46)">W
+                <tspan class="cls-4" x="45" y="0" xml:space="preserve"> ONE</tspan>
+            </text>
+            <text class="cls-3" transform="translate(22.9 113.87)">ST
+                <tspan class="cls-4" x="61.5" y="0">ONE</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 509.26 163.9">
+    <defs>
+        <style>.cls-2{fill:none;stroke:#001529;stroke-miterlimit:10}.cls-10,.cls-7{letter-spacing:.43em}</style>
+    </defs>
+    <g>
+        <g>
+            <path d="M160.05 134.22c.12 1.2.49 24.05.56 24.34h-2.88l-149.37 2-4.9.07.07-4.91L5.4 6.41v-3h2.96l149.37.63h2.39l-.06 2.32L159.5 29H156l-.6-22.59 2.33 2.33-149.37.63 3-3 1.84 149.4-4.84-4.83 149.37 2-2.82 2.82.49-21.55Z"
+                  style="fill:#001529"/>
+            <path class="cls-2" d="M151.28 134.31v29.09H.5V12.62h150.78v16.65"/>
+            <path class="cls-2" d="M163.26 134.25v14.46H15.05V.5h148.21v28.62"/>
+            <text transform="translate(31.56 116.27)"
+                  style="font-family:Baskerville-Bold,Baskerville;font-weight:700;font-size:109px;fill:#001529">W
+            </text>
+            <text transform="translate(145.87 81.09)" style="font-size:60px;font-family:Baskerville;fill:#001529">ONE
+                <tspan x="131.87" y="0" xml:space="preserve"
+                       style="font-family:Baskerville-Bold,Baskerville;font-weight:700"> ST</tspan>
+                <tspan x="223.74" y="0">ONE</tspan>
+            </text>
+            <text transform="translate(148.94 117.76)"
+                  style="font-size:18px;letter-spacing:.4em;font-family:Baskerville-Bold,Baskerville;font-weight:700;fill:#001529">
+                A
+                <tspan class="cls-7" x="18.62" y="0">U</tspan>
+                <tspan x="40.18" y="0" style="letter-spacing:.39em">T</tspan>
+                <tspan class="cls-7" x="60.14" y="0">OM</tspan>
+                <tspan x="108.33" y="0" style="letter-spacing:.38em">A</tspan>
+                <tspan class="cls-10" x="126.62" y="0">TION</tspan>
+                <tspan x="218.87" y="0" style="letter-spacing:.39em">T</tspan>
+                <tspan class="cls-10" x="238.83" y="0">OOLKIT</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

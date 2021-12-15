@@ -18,8 +18,8 @@ const NavbarSection = (props) => {
             <Menu.Item key="2" icon={<UploadOutlined/>}>
                 <NavLink to="/uploadCreatives/">LOAD YOUR CREATIVES</NavLink>
             </Menu.Item>
-            {/*<SubMenu key="sub1" disabled={!props.isCreativesReady} icon={<BarChartOutlined/>} title="CREATE DC">*/}
-            <SubMenu key="sub1" icon={<BarChartOutlined/>} title="CREATE DC">
+            <SubMenu key="sub1" disabled={!props.isCreativesReady} icon={<BarChartOutlined/>} title="CREATE DC">
+            {/*<SubMenu key="sub1" icon={<BarChartOutlined/>} title="CREATE DC">*/}
                 <Menu.Item key="3"><NavLink to="/uploadGs/step_0">Upload Google Spreadsheets</NavLink></Menu.Item>
                 <Menu.Item key="4">Upload CSV</Menu.Item>
                 <Menu.Item key="5">Upload .json File</Menu.Item>
@@ -27,8 +27,10 @@ const NavbarSection = (props) => {
             {/*<SubMenu key="sub2" disabled={ !props.isDataReady || !props.isCreativesReady} icon={<SaveOutlined/>} title="GET ALL STATIC VARIATIONS">*/}
             {/*    <Menu.Item key="6">Get all versions</Menu.Item>*/}
             {/*</SubMenu>*/}
-            {/*<Menu.Item key="6" disabled={ !props.isDataReady || !props.isCreativesReady} icon={<SaveOutlined/>}>*/}
-            <Menu.Item key="6" icon={<SaveOutlined/>}>
+            <Menu.Item key="6"
+                       disabled={!props.isDataReady || !props.isCreativesReady}
+                       icon={<SaveOutlined/>}>
+            {/*<Menu.Item key="6" icon={<SaveOutlined/>}>*/}
                 <NavLink to="/getStaticVariations/">GET ALL STATIC VARIATIONS</NavLink>
             </Menu.Item>
             <SubMenu key="sub3" disabled={!props.isDataReady || !props.isCreativesReady} icon={<FundViewOutlined/>} title="PREVIEW">
