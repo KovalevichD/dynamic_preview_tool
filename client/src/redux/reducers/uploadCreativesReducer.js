@@ -104,7 +104,6 @@ export const uploadFiles = (filesToUpload) => {
 
         const res = await uploadCreativesAPI.uploadFiles(formData);
 
-        // dispatch(toggleIsFetching(false));
         dispatch(resetFiles());
         dispatch(addFilesUploadedToServer(res.data.uploadedFiles));
         dispatch(toggleIsCreativesReady(true));

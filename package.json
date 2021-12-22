@@ -4,7 +4,7 @@
   "description": "server for dynamic preview tool",
   "main": "app/app.js",
   "scripts": {
-    "start": "set NODE_ENV=production&& node app/app.js",
+    "start": "node app/app.js",
     "server": "nodemon app/app.js",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""

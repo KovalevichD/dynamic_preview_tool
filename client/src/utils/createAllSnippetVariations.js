@@ -1,5 +1,4 @@
 const createAllSnippetVariations = array => {
-    // const allVariants = {};
     const allVariants = new Map();
     const max = array.length - 1;
     const recursivePass = (objInit, string, i) => {
@@ -13,7 +12,6 @@ const createAllSnippetVariations = array => {
             cloneObj[name] = value;
             cloneString += `|${uniqueString}`
 
-            // i === max ? allVariants[cloneString] = cloneObj : recursivePass(cloneObj, cloneString, i + 1);
             i === max ? allVariants.set(cloneString, cloneObj) : recursivePass(cloneObj, cloneString, i + 1);
         }
     }
